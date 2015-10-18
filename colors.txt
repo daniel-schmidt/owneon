@@ -1,0 +1,21 @@
+Farbschema:
+
+gelb unterschiedlicher Sättigungen:
+
+67%	#fd5	Banner, Überschriften-Links, aktiver Menüeintrag
+33%	#ffeeab	Links im Text, Untermenü-Hintergrund, Hauptmenü bei aktivem Untermenü
+20%	#fff5cc	Untermenü-Hoover Hintergrund
+10%	#fffae6	Schrift, Linien, helle Flächen, Buttons, ...
+
+gelb-braun
+	#c3b683 besuchte Links
+
+rot
+
+95% 	#e60c0c	Banner, Link-Text Hover
+75%	#e63a3a
+
+grau
+
+	#2e2a29	wie der Hintergrund für Text auf hellem Gelb
+	#a6a296	Schriftfarbe mit weniger Value (65 statt 100) für weniger auffäligen Text
