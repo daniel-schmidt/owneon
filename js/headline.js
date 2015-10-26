@@ -4,8 +4,15 @@ function showHeadline() {
         var headline = $('#headline');
         var backbutton = $('body > .show-img-button');
         var ypos = $(window).scrollTop();
-        if( ypos > content_top && window.innerWidth > 600 ){
-            headline.css('display', "table");	
+        if( ypos > content_top ){
+            if( window.innerWidth > 600 )
+            {
+                headline.css('display', "table");	
+            }
+            else
+            {
+                headline.css('display', "none");
+            }
             backbutton.css('display', "none");
         }
         else
