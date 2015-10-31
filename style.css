@@ -560,22 +560,51 @@ body > .show-img-button {
 }
 
 .site-content {
-  margin-left: 11rem;
+    width: 100%;
+    float: left;
+/*   margin-left: 11rem; */
   background-color: transparent;
 }
 
 .content-area {
-	margin: 0;
+	margin: 0 22rem 0 11rem;
         overflow: hidden;
 }
 .site-main {
 	margin: 0;
 }
-.site-content .widget-area {
+.widget-area {
 	float: right;
         width: 22rem;
-	margin: 0;
+	margin-left: -22rem;
 }
+
+@media screen and (max-width: 830px) {
+	
+	.widget-area {
+            width: 100%;
+            padding-left: 11rem;
+            clear: both;
+	}
+	
+	.content-area {
+            margin-right: 0;
+	}
+}
+
+@media (max-width: 600px){ /* 2nd level responsive layout break point- drop left column down */
+	#leftcolumn{
+	float: none;
+	width: 100%;
+	clear: both;
+	margin-left: 0;
+	}
+	
+	#contentcolumn{
+	margin-left: 0;
+	}
+}
+
 .site-footer {
 	clear: both;
 	float: left;
@@ -750,7 +779,6 @@ body > .show-img-button {
 		width: 100%
 	}
 }
-
 
 /* =Content
 ----------------------------------------------- */

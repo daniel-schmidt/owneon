@@ -31,3 +31,5 @@ Seite: max. 105 rem
         Content: flexibel, Rest, max 68+2 rem
             2+2 rem padding
             Article: 64 rem
+            
+verkleinern: 105-22 = 83 rem

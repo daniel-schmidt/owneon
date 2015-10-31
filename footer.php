@@ -8,8 +8,6 @@
  */
 ?>
 
-	</div><!-- #content -->
-
 	<footer id="colophon" class="site-footer foreground" role="contentinfo">
 		<div class="site-info">
 			<?php do_action( 'owneon_credits' ); ?>
