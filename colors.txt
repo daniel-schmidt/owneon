@@ -19,3 +19,15 @@ grau
 
 	#2e2a29	wie der Hintergrund für Text auf hellem Gelb
 	#a6a296	Schriftfarbe mit weniger Value (65 statt 100) für weniger auffäligen Text
+-----------------------------------------------------------------------------------------
+
+Breiten:
+
+Seite: max. 105 rem
+    2 rem padding-left
+    Menü: fix 9+2 rem
+    Content: flexibel, Rest, max 92
+        Sidebar: fix 20+2 rem
+        Content: flexibel, Rest, max 68+2 rem
+            2+2 rem padding
+            Article: 64 rem

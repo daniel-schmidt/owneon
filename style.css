@@ -161,16 +161,16 @@ hr {
 	background-color: #fffae6;
 	border: 0;
 	height: 1px;
-	margin-bottom: 1.3em;
+	margin-bottom: 2rem;
 }
 
 /* Text elements */
 p {
-	margin-bottom: 1.3em;
+	margin-bottom: 2rem;
 	text-align: justify;
 }
 ul, ol {
-	margin: 0 0 1.3em 1.5em;
+	margin: 0 0 2rem 2rem;
 }
 ul {
 	list-style: square;
@@ -181,7 +181,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.3em;
+	margin-left: 2rem;
 }
 dt {
 	font-family: ColaborateMedium;
@@ -196,14 +196,14 @@ dfn, cite, em, i {
 	font-style: italic;
 }
 blockquote {
-	margin: 0 1.3em;
+	margin: 0 2rem;
 	font-style: italic;
 }
 blockquote cite {
 	font-style: normal;
 }
 address {
-	margin: 0 0 1.3em;
+	margin: 0 0 2rem;
 }
 pre {
 	background: #2e2a29;
@@ -375,17 +375,17 @@ a:active {
 .alignleft {
 	display: inline;
 	float: left;
-	margin-right: 1.5em;
+	margin-right: 2rem;
 }
 .alignright {
 	display: inline;
 	float: right;
-	margin-left: 1.5em;
+	margin-left: 2rem;
 }
 .aligncenter {
 	clear: both;
 	display: block;
-	margin: 0.5rem auto 0 auto;
+	margin: 0 auto;
 }
 
 /* Text meant only for screen readers */
@@ -448,7 +448,7 @@ a:active {
   margin: 0 auto;
   background-color: transparent;
   overflow: hidden;
-  padding: 0 2rem;
+  padding-left: 2rem;
 }
 
 #background {
@@ -579,7 +579,6 @@ body > .show-img-button {
 .site-footer {
 	clear: both;
 	float: left;
-	width: 77rem;
 	height: 9rem;
 	padding: 2rem;
 	font-size: 1.4rem;
@@ -772,10 +771,12 @@ body > .show-img-button {
 .group-blog .byline {
 	display: inline;
 }
-.page-content,
+.page-content {
+    margin: 3rem 0 0;
+}
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 2rem 0 0;
 }
 .page-links {
 	clear: both;
@@ -849,23 +850,23 @@ a img {
 }
 .wp-caption {
 	border: none;
-	margin-bottom: 1.5em;
+	margin-bottom: 2rem;
 	max-width: 100%;
 }
 .wp-caption img[class*="wp-image-"] {
 	display: block;
 	margin: 1.2% auto 0;
-	max-width: 98%;
 }
 .wp-caption-text {
-	text-align: justify;
+	text-align: center;
  	font-size: 14px;
 	font-size: 1.4rem; 
-/* 	color: #a6a296; */
-/* 	font-family: ColaborateThin; */
 }
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+	margin: 1rem 1rem 0rem 1rem;
+}
+.wp-post-image {
+    margin-bottom: 1rem;
 }
 .site-main .gallery {
 	margin-bottom: 1.3em;
