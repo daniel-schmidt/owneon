@@ -547,7 +547,6 @@ body > .show-img-button {
   margin: 0;
 }
 .show-img-button:hover > div {
-/*   display: block; */
   visibility: visible;
 }
 
@@ -561,36 +560,20 @@ body > .show-img-button {
 }
 
 .site-content {
-  float: right;
-  min-width: 10rem;
-  max-width: 90rem;
-/*  width: 80%;*/
-  display: inline-block;
+  margin-left: 11rem;
   background-color: transparent;
 }
-.page .site-content {
-  max-width: 68rem;
-  margin-right: 22rem;
-}
-.page .content-area {
-  width: 100%;
-}
+
 .content-area {
-	float: left;
-	margin: 0 0 0 0;
-/* 	max-width: 68rem; */
-	width: 75.6%;
-	display: inline-block;
+	margin: 0;
+        overflow: hidden;
 }
 .site-main {
 	margin: 0;
 }
 .site-content .widget-area {
 	float: right;
-	display: inline-block;
-/* 	overflow: hidden; */
-/* 	max-width: ~20rem; */
-	width: 24.4%;
+        width: 22rem;
 	margin: 0;
 }
 .site-footer {
