@@ -753,33 +753,24 @@ body > .show-img-button {
 }
 
 /* Small menu */
-.menu-toggle {
+/*.menu-toggle {
 	cursor: pointer;
 	display: none;
-}
+        float: left;
+        width: 9rem;
+        height: 9rem;
+        text-align: center;
+        font-size: 3rem;
+        font-family: ColaborateLight;
+        line-height: 9rem;
+}*/
 
 @media screen and (max-width: 600px) {
-	.site-content {
+	.site-content, .main-navigation, .content-area {
 		width: 100%;
-	}
-	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
-		display: block;
-	}
-	.main-navigation {
-		width: 100%;
-	}
-	.main-navigation ul {
-		display: none;
 	}
 	.main-navigation li {
 		float: left;
-	}
-	.site-content .widget-area {
-		display: none;
-	}
-	.content-area {
-		width: 100%
 	}
 }
 
