@@ -593,16 +593,19 @@ body > .show-img-button {
 }
 
 @media (max-width: 600px){ /* 2nd level responsive layout break point- drop left column down */
-	#leftcolumn{
+/*	#leftcolumn{
 	float: none;
 	width: 100%;
 	clear: both;
 	margin-left: 0;
-	}
+	}*/
 	
-	#contentcolumn{
-	margin-left: 0;
+	.content-area{
+            margin-left: 0;
 	}
+	.widget-area {
+            padding-left: 0;
+        }
 }
 
 .site-footer {
