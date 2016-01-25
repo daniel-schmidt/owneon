@@ -884,6 +884,7 @@ body > .show-img-button {
 }
 .wp-post-image {
     margin-bottom: 1rem;
+    box-shadow: 2px 2px 7px rgba(0,0,0,0.70);
 }
 .site-main .gallery {
 	margin-bottom: 2rem!important;
