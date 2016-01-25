@@ -986,6 +986,10 @@ object {
 	display: none;
 }
 
+.widget_search input[type="search"] {
+        width: 17.2rem;
+}
+
 .widget-title {
 	font-size: 2.6rem;
 }
