@@ -1026,3 +1026,175 @@ object {
 	margin: 2rem 2rem 0 0;
 	box-shadow: 2px 2px 7px rgba(0,0,0,0.70);
 }
+
+/*****************************************************************
+ * NEW stuff for front page template
+ *****************************************************************/
+
+/* = main sections
+-------------------------------------------------------------- */
+
+ #background {
+    width: 100%;
+    height: 100%;
+    background: #000 url("img/background.jpg") no-repeat center top;
+    background-attachment: fixed;
+ }
+ 
+.page, #page-head {
+    padding-top: 9rem; /*4.5 for headline, 4.5 as separator*/
+    height: 100rem;
+    text-align: center;
+}
+
+.home .site {
+    max-width: 100%;
+    padding: 0;
+}
+
+.foreground {
+    background-color: rgba(0,0,0,0.70);
+    margin: 2rem 2rem 0 0;
+    box-shadow: 2px 2px 7px rgba(0,0,0,0.70);
+}
+
+.home .content-area {
+    margin: 0;
+}
+
+.content-centered {
+    display: inline-block;
+    margin-right: -2rem;    /* correct for right margin of foreground elements */
+}
+
+.full-width {
+    width: 100%;
+    height: 60rem;
+}
+
+/* = headline
+-------------------------------------------------------------- */
+#fp-headline {
+    position: fixed;  
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: 100%;
+    height: 4.5rem;
+    background-color: rgba(0,0,0,0.3);
+/*     box-shadow: 0 1rem 1.5rem #111; */
+    z-index: 1000;
+}
+
+#fp-headline img, #fp-headline nav {
+    display: inline-block;
+    float: left;
+}
+
+#fp-headline li {
+    line-height: 2.5rem;
+    font-size: 2rem;
+}
+
+/* = menues
+-------------------------------------------------------------- */
+
+nav li {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-family: ColaborateThin;
+    font-size: 2.6rem;
+    color: #fd5;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav .active {
+    color: #e60c0c;
+    font-family: ColaborateLight;
+}
+
+.submenu {
+    height: 9rem;
+}
+.submenu li {
+    font-size: 2rem;
+    line-height: 7rem;
+}
+
+.submenu .active {
+    font-size: 4rem;
+}
+
+.continue-button {
+    margin-top: 20rem;
+}
+
+/* = page-head
+-------------------------------------------------------------- */
+
+#page-head p, #page-head blockquote {
+    width: 42rem;
+    margin: 0 auto;
+}
+
+#page-head img {
+    width: 60rem;
+    height: auto;
+    margin-bottom: 6rem;
+}
+
+/* = blog
+-------------------------------------------------------------- */
+
+.blog-main {
+    width: 60rem;
+    height: 60rem;
+}
+
+.blog-side {
+    width: 25rem;
+    height: 25rem;
+}
+
+.blog-main img {
+    height: 30rem;
+    max-width: 50rem;
+}
+
+.blog-side img {
+    width: 21rem;
+    height: auto;
+}
+/* = gallery
+-------------------------------------------------------------- */
+
+.slider-item {
+    display: inline-block;
+    vertical-align: middle;
+}
+#gallery-prev {
+    margin-right: 2rem;
+}
+#gallery-next {
+    margin-left: 2rem;
+}
+#image-container {
+    width: 90%;
+/*     background-color: yellow; */
+}
+
+.img-row {
+    width: 100%;
+    height: 23rem;
+    margin-bottom: 1rem;
+/*     background-color: blue; */
+}
+
+.img-row img {
+    height: 100%;
+    width: auto;
+    margin-left: 1rem;
+}

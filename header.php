@@ -50,6 +50,8 @@
 
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
+	<?php if( is_front_page() ) : ?>
+	<?php else : ?>
 	<header id="masthead" class="site-header foreground" role="banner">
 	  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 		<div class="site-branding">
@@ -64,4 +66,4 @@
 
 		<?php wp_nav_menu( array( 'theme_location' => 'primary') ); ?>
 	</nav><!-- #site-navigation -->
-
+        <?php endif; ?>
