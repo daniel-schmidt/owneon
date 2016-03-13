@@ -147,6 +147,7 @@
             }
             ?>
             
+            
             <div class="content-area full-width">
                 <div class="foreground full-width">
                     <nav class="submenu">
@@ -158,29 +159,44 @@
                             <li>Pfaffenstein 2013</li>
                         </ul>
                     </nav>
+                    
                     <div id="gallery-container">
+                    
                         <div id="gallery-prev" class="slider-item">
                             <a href=#gallery>prev</a>
                         </div>
+                        
                         <div id="image-container" class="slider-item">
-                            <div id="img-row-1" class="img-row">
-                                <img src="content/koptisches_kairo01.jpg" alt="koptisches kairo 01"/>
-                                <img src="content/koptisches_kairo02.jpg" alt="koptisches kairo 02"/>
-                                <img src="content/koptisches_kairo03.jpg" alt="koptisches kairo 03"/>
-                                <img src="content/koptisches_kairo04.jpg" alt="koptisches kairo 04"/>
-                                <img src="content/koptisches_kairo05.jpg" alt="koptisches kairo 05"/>
-                            </div>
-                            <div id="img-row-2" class="img-row">
-                                <img src="content/koptisches_kairo06.jpg" alt="koptisches kairo 06"/>
-                                <img src="content/koptisches_kairo07.jpg" alt="koptisches kairo 07"/>
-                                <img src="content/koptisches_kairo08.jpg" alt="koptisches kairo 08"/>
-                                <img src="content/koptisches_kairo09.jpg" alt="koptisches kairo 09"/>
-                                <img src="content/koptisches_kairo10.jpg" alt="koptisches kairo 10"/>
-                            </div>
-                        </div>
+                            <?php 
+                                $args = array(
+                                    'post_type' => 'attachment',
+                                    'tax_query' => 'Galerie',
+                                    'posts_per_page' => 8,
+                                    'orderby' => 'rand'
+                                );
+                                $attachments = get_posts( $args );
+                           
+                                if ( $attachments ) {
+                                    echo '<div id="img-row-1" class="img-row">';
+                                    $count = 0;
+                                    foreach ( $attachments as $post ) {
+                                            setup_postdata( $post );
+                                            echo '<a href="' . esc_url(wp_get_attachment_url( $post->ID )) . '">'.wp_get_attachment_image( $post->ID, $size='medium' ) .'</a>';
+                                            if( $count == 3 ) {
+                                                echo '</div><div id="img-row-2" class="img-row">';
+                                            }
+                                            $count++;
+                                    }
+                                    wp_reset_postdata();
+                                    echo '</div>';
+                                }
+                            ?>
+                        </div> <!--image-container-->
+                    
                         <div id="gallery-next" class="slider-item">
                             <a href=#gallery>more</a>
                         </div>
+                        
                     </div> <!--gallery-containre-->
                 </div>  <!--foreground-->
             </div>
