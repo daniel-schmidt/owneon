@@ -73,36 +73,46 @@
             <div class="content-area content-centered">
 
                 <div id="blog-prev" class="blog-side foreground  slider-item">
-                    <h3>Über den Wolken – Besteigung des Fuji</h3>
-                    <?php previous_posts_link(); ?>
-                    <img src="content/koptisches_kairo04.jpg" alt="koptisches kairo 04"/>
+                    <?php $prev_post = get_adjacent_post( true, '', false ); ?>
+                    <?php if ( is_a( $prev_post, 'WP_Post' ) ) { ?>
+                    <a href="<?php $ppl=explode('"',get_previous_posts_link()); 
+                        $ppl_url=$ppl[1];
+                        echo esc_url($ppl_url . '#blog'); ?>
+                        "><?php echo get_the_title( $prev_post->ID ); ?></a>
+                    <?php } ?>
+                    <?php echo get_the_post_thumbnail( $prev_post->ID, 'thumbnail' ); ?>
                 </div>
                 
                 <?php
-                if ( have_posts() ) :
-                    while ( have_posts() ) : the_post(); ?>
-                        <div class="slider-item blog-main">
-                        <?php get_template_part( 'content', get_post_format() ); ?>
-                        </div>
-                    <?php endwhile;
-                    owneon_paging_nav();
-                endif;?>  
-                
-                <?php /*$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 2 ) );
-
-                if ( $latest_blog_posts->have_posts() ) :
-                    while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post();*/ ?>
-                       <!-- <div class="slider-item blog-main foreground">
-                        <?php /*get_template_part( 'content', get_post_format() );*/ ?>
-                        </div>-->
-                    <?/*php endwhile;
-                    owneon_paging_nav();
-                endif;*/?>          
+                if( !is_tag() ) :
+                    print( "kein tag!");
+                    if ( have_posts() ) :
+                        while ( have_posts() ) : the_post(); ?>
+                            <div class="slider-item blog-main">
+                            <?php get_template_part( 'content', get_post_format() ); ?>
+                            </div>
+                        <?php endwhile;
+                    endif;
+                else :
+                    $latest_blog_posts = new WP_Query( array( 'posts_per_page' => 2 ) );
+                    if ( $latest_blog_posts->have_posts() ) :
+                        while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post(); ?>
+                        <div class="slider-item blog-main foreground">
+                            <?php get_template_part( 'content', get_post_format() ); ?>
+                            </div>
+                        <?php endwhile;
+                    endif;
+                endif;?>          
 
                 <div id="blog-next" class="blog-side foreground slider-item">
-                    <h3>Weiße Weihnachten</h3>
-                    <?php next_posts_link(); ?>
-                    <img src="content/koptisches_kairo06.jpg" alt="koptisches kairo 06"/>
+                    <?php $prev_post = get_adjacent_post( true, '', true ); ?>
+                    <?php if ( is_a( $prev_post, 'WP_Post' ) ) { ?>
+                    <a href="<?php $npl=explode('"',get_next_posts_link()); 
+                        $npl_url=$npl[1];
+                        echo esc_url($npl_url . '#blog'); ?>
+                        "><?php echo get_the_title( $prev_post->ID ); ?></a>
+                    <?php } ?>
+                    <?php echo get_the_post_thumbnail( $prev_post->ID, 'thumbnail' ); ?>
                 </div>
 
             </div>
