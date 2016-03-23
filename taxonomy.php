@@ -1,6 +1,8 @@
-<?php get_header(); ?>
+<?php get_header();
+    get_template_part('gallery');
+?>
 
-<div id="primary" class="content-area">
+<!--<div id="primary" class="content-area">
 <main id="main" class="site-main" role="main">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="entry-header">
@@ -58,7 +60,7 @@
     </div>
     </article>
 </main>
-</div><!--#primary-->
-</div><!-- #content -->
-<?php get_sidebar(); ?>
+</div><!--#primary-->-->
+<!-- </div><!-- #content --> -->
+<!-- <?php get_sidebar(); ?>-->
 <?php get_footer();  ?>
