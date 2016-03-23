@@ -50,8 +50,7 @@
 
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
-	<?php if( is_front_page() || is_tax() ) : ?>
-	<?php else : ?>
+	<?php if( is_single() ) : ?>
 	<header id="masthead" class="site-header foreground" role="banner">
 	  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 		<div class="site-branding">

@@ -444,11 +444,9 @@ a:active {
 /* =Structure
 -----------------------------------------------*/
 .site {
-  max-width: 105rem;
   margin: 0 auto;
   background-color: transparent;
   overflow: hidden;
-  padding-left: 2rem;
 }
 
 #background {
@@ -567,7 +565,6 @@ body > .show-img-button {
 }
 
 .content-area {
-	margin: 0 22rem 0 11rem;
         overflow: hidden;
 }
 .site-main {
@@ -1047,7 +1044,7 @@ object {
     text-align: center;
 }
 
-.home .site {
+.site {
     max-width: 100%;
     padding: 0;
 }
@@ -1056,10 +1053,6 @@ object {
     background-color: rgba(0,0,0,0.70);
     margin: 2rem 2rem 0 0;
     box-shadow: 2px 2px 7px rgba(0,0,0,0.70);
-}
-
-.home .content-area {
-    margin: 0;
 }
 
 .content-centered {
@@ -1151,7 +1144,7 @@ nav .active {
 
 .blog-main {
     width: 60rem;
-    height: 60rem;
+/*     height: 60rem; */
 }
 
 .blog-side {
@@ -1173,7 +1166,8 @@ nav .active {
 
 .slider-item {
     display: inline-block;
-    vertical-align: middle;
+/*     vertical-align: middle; */
+    vertical-align: top;
 }
 #gallery-prev {
     margin-right: 2rem;

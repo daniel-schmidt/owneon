@@ -17,7 +17,7 @@
             if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
             $term_items='<nav><ul>';
             foreach ( $terms as $term ) {
-                $term_items .= '<li class="foreground"><a href="' . esc_url( get_category_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
+                $term_items .= '<li class="foreground"><a href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
             }
             $term_items .= '</ul></nav>';
             echo $term_items;
