@@ -71,21 +71,28 @@
             }?>
         
             <div class="content-area content-centered">
-
-                <div id="blog-prev" class="blog-side foreground  slider-item">
-                    <?php $prev_post = get_adjacent_post( true, '', false ); ?>
-                    <?php if ( is_a( $prev_post, 'WP_Post' ) ) { ?>
-                    <a href="<?php $ppl=explode('"',get_previous_posts_link()); 
-                        $ppl_url=$ppl[1];
-                        echo esc_url($ppl_url . '#blog'); ?>
-                        "><?php echo get_the_title( $prev_post->ID ); ?></a>
-                    <?php } ?>
-                    <?php echo get_the_post_thumbnail( $prev_post->ID, 'thumbnail' ); ?>
-                </div>
                 
+                <!-- left navigation panel for newer posts -->
+                <?php $prev_post = get_adjacent_post( true, '', false ); ?>
+                <?php if ( is_a( $prev_post, 'WP_Post' ) ) : ?>
+                <a href="<?php $ppl=explode('"',get_previous_posts_link()); 
+                    $ppl_url=$ppl[1];
+                    echo esc_url($ppl_url . '#blog'); ?>
+                    ">
+                    <div id="blog-prev" class="blog-side foreground  slider-item">
+                        <h3><?php echo short_title( get_the_title( $prev_post->ID ), '...', 30 ); ?></h3>
+                        <?php echo get_the_post_thumbnail( $prev_post->ID, 'thumbnail' ); ?>
+                    </div>
+                </a>
+                <?php else : ?>
+                    <div id="blog-prev" class="blog-side invisible slider-item">
+                    </div>
+                <?php endif ?>
+                
+                <!-- main panels -->
                 <?php
                 if( !is_tag() ) :
-                    print( "kein tag!");
+//                     print( "kein tag!");
                     if ( have_posts() ) :
                         while ( have_posts() ) : the_post(); ?>
                             <div class="slider-item blog-main">
@@ -104,17 +111,23 @@
                     endif;
                 endif;?>          
 
-                <div id="blog-next" class="blog-side foreground slider-item">
-                    <?php $prev_post = get_adjacent_post( true, '', true ); ?>
-                    <?php if ( is_a( $prev_post, 'WP_Post' ) ) { ?>
-                    <a href="<?php $npl=explode('"',get_next_posts_link()); 
-                        $npl_url=$npl[1];
-                        echo esc_url($npl_url . '#blog'); ?>
-                        "><?php echo get_the_title( $prev_post->ID ); ?></a>
-                    <?php } ?>
-                    <?php echo get_the_post_thumbnail( $prev_post->ID, 'thumbnail' ); ?>
-                </div>
-
+                <!-- right navigation panel for older posts -->
+                <?php $next_post = get_adjacent_post( true, '', true ); ?>
+                <?php if ( is_a( $next_post, 'WP_Post' ) ) : ?>
+                <a href="<?php $npl=explode('"',get_next_posts_link()); 
+                    $npl_url=$npl[1];
+                    echo esc_url($npl_url . '#blog'); ?>
+                    ">
+                    <div id="blog-next" class="blog-side foreground  slider-item">
+                    <h3><?php echo short_title( get_the_title( $next_post->ID ), '...', 30); ?></h3>
+                        <?php echo get_the_post_thumbnail( $next_post->ID, 'thumbnail' ); ?>
+                    </div>
+                </a>
+                <?php else : ?>
+                    <div id="blog-next" class="blog-side invisible slider-item">
+                    </div>
+                <?php endif ?>
+                
             </div>
         </div>
         

@@ -1024,6 +1024,11 @@ object {
 	box-shadow: 2px 2px 7px rgba(0,0,0,0.70);
 }
 
+.invisible {
+    margin: 2rem 2rem 0 0;
+    visibility: hidden;
+}
+
 /*****************************************************************
  * NEW stuff for front page template
  *****************************************************************/
@@ -1150,6 +1155,7 @@ nav .active {
 .blog-side {
     width: 25rem;
     height: 25rem;
+    padding: 1rem 2rem;
 }
 
 .blog-main img {
@@ -1160,6 +1166,8 @@ nav .active {
 .blog-side img {
     width: 21rem;
     height: auto;
+    margin-top: 1rem;
+    max-height: 14rem;
 }
 /* = gallery
 -------------------------------------------------------------- */
