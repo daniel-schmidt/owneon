@@ -69,6 +69,7 @@
                             wp_reset_postdata();
                             echo '</div>';
                         }
+                        wp_reset_postdata();
                     ?>
                 </div> <!--image-container-->
             

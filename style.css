@@ -1045,7 +1045,7 @@ object {
  
 .page, #page-head {
     padding-top: 9rem; /*4.5 for headline, 4.5 as separator*/
-    height: 100rem;
+    min-height: 100rem;
     text-align: center;
 }
 
