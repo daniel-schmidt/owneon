@@ -1,10 +1,11 @@
 <div id="galerie" class="page">
 
-    <?php $main_terms = get_terms( 'galerie_kategorie', array(
+
+    <?php // menu buttons from gallery categories
+    $main_terms = get_terms( 'galerie_kategorie', array(
         'orderby' => 'name',
         'parent' => 0
     ) );
-    
     if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
         foreach( $main_terms as $main_term ) {
             echo '<h1>' . $main_term->name . '</h1>';
@@ -29,15 +30,30 @@
     
     <div class="content-area full-width">
         <div class="foreground full-width">
-            <nav class="submenu">
-                <ul>
-                    <li>Japan 2015</li>
-                    <li class="active">Ägypten 2015</li>
-                    <li>München 2014</li>
-                    <li>Schweden 2013</li>
-                    <li>Pfaffenstein 2013</li>
-                </ul>
-            </nav>
+        <?php if ( is_tax() ) {
+            $curr_term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+            $sub_terms = get_terms( 'galerie_kategorie', array(
+                'orderby' => 'name',
+                'parent' => $curr_term->term_id 
+            ) );
+            
+            if ( empty( $sub_terms ) ) {
+                $parent = get_term($curr_term->parent, get_query_var('taxonomy') );
+                $sub_terms = get_terms( get_query_var('taxonomy'), array(
+                    'orderby' => 'name',
+                    'parent' => $parent->term_id
+                ) );
+            }
+            if ( !empty( $sub_terms ) || !is_wp_error( $sub_terms ) ) {
+                $term_items='<nav class="submenu"><ul>';
+                foreach ( $sub_terms as $term ) {
+                    $term_items .= '<li><a href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
+                }
+                $term_items .= '</ul></nav>';
+                echo $term_items;
+            }
+        }
+        ?>
             
             <div id="gallery-container">
             
@@ -47,6 +63,15 @@
                 
                 <div id="image-container" class="slider-item">
                     <?php 
+                    if( is_tax() ) :
+                        if ( have_posts() ) :
+                            while ( have_posts() ) : the_post(); ?>
+                                <div class="slider-item blog-main">
+                                <?php get_template_part( 'content', get_post_format() ); ?>
+                                </div>
+                            <?php endwhile;
+                        endif;
+                    else :
                         $args = array(
                             'post_type' => 'attachment',
                             'tax_query' => 'Galerie',
@@ -70,6 +95,7 @@
                             echo '</div>';
                         }
                         wp_reset_postdata();
+                    endif;
                     ?>
                 </div> <!--image-container-->
             
