@@ -124,7 +124,7 @@ function tax_paged_query( $query ) {
   // do not alter the query on wp-admin pages and only alter it if it's the main query
   if (!is_admin() && $query->is_main_query()){
     if(is_tax()){
-      $query->set('posts_per_page', 2);
+      $query->set('posts_per_page', 8);
     }
   }
 }

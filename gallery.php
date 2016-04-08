@@ -63,14 +63,23 @@
                 
                 <div id="image-container" class="slider-item">
                     <?php 
+                    // if we are a Taxonomy, we display every item from the main loop
+                                       
                     if( is_tax() ) :
-                        if ( have_posts() ) :
-                            while ( have_posts() ) : the_post(); ?>
-                                <div class="slider-item blog-main">
-                                <?php get_template_part( 'content', get_post_format() ); ?>
-                                </div>
-                            <?php endwhile;
-                        endif;
+                        if ( have_posts() ) : ?>
+                            <div id="img-row-1" class="img-row">
+                            <?php $count = 0;
+                            while ( have_posts() ) : the_post();
+                                echo '<a href="' . esc_url(wp_get_attachment_url( get_the_ID() )) . '">'.wp_get_attachment_image( get_the_ID(), $size='medium' ) .'</a>';
+                                    if( $count == 3 ) {
+                                        echo '</div><div id="img-row-2" class="img-row">';
+                                    }
+                                    $count++;
+                            endwhile; ?>
+                            </div>
+                        <?php endif;
+                    
+                    // we are not in Gallery mode, so we display some (random) images
                     else :
                         $args = array(
                             'post_type' => 'attachment',
