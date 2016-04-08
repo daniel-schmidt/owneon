@@ -118,6 +118,19 @@ function add_foreground_class( $classes, $item ) {
 add_filter( 'nav_menu_css_class', 'add_foreground_class', 10, 2 );
 add_filter( 'post_class', 'add_foreground_class_nofront', 10, 2 );
 
+// function to set the query for taxonomy archives paged with n elements
+// from https://codex.wordpress.org/Pagination
+function tax_paged_query( $query ) {
+  // do not alter the query on wp-admin pages and only alter it if it's the main query
+  if (!is_admin() && $query->is_main_query()){
+    if(is_tax()){
+      $query->set('posts_per_page', 2);
+    }
+  }
+}
+add_action( 'pre_get_posts', 'tax_paged_query' );
+
+// whats this?
 function so_23388561_wp_head()
 {
     if ( is_singular('post') && has_post_thumbnail( get_the_ID() ) )
