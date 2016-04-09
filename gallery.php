@@ -3,13 +3,16 @@
 
     <?php // menu buttons from gallery categories
     $main_terms = get_terms( 'galerie_kategorie', array(
-        'orderby' => 'name',
+        'orderby' => 'slug',
         'parent' => 0
     ) );
     if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
         foreach( $main_terms as $main_term ) {
-            echo '<h1>' . $main_term->name . '</h1>';
             
+            // main gallery button
+            echo '<a href="' . esc_url( get_category_link( $main_term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $main_term->name ) ) . '">'
+            . '<h1>' . $main_term->name . '</h1>' .
+            '</a>';
             $terms = get_terms( 'galerie_kategorie', array(
                 'orderby' => 'name',
                 'parent' => $main_term->term_id
@@ -33,10 +36,12 @@
         <?php if ( is_tax() ) {
             $curr_term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
             $sub_terms = get_terms( 'galerie_kategorie', array(
-                'orderby' => 'name',
+                'orderby' => 'slug',
+                'order' => 'DESC',
                 'parent' => $curr_term->term_id 
             ) );
             
+            // if we are in the lowest level, we display the other 
             if ( empty( $sub_terms ) ) {
                 $parent = get_term($curr_term->parent, get_query_var('taxonomy') );
                 $sub_terms = get_terms( get_query_var('taxonomy'), array(
@@ -44,7 +49,8 @@
                     'parent' => $parent->term_id
                 ) );
             }
-            if ( !empty( $sub_terms ) || !is_wp_error( $sub_terms ) ) {
+            
+            if ( ( !empty( $sub_terms ) || !is_wp_error( $sub_terms ) ) && !in_array($curr_term, $main_terms) ) {
                 $term_items='<nav class="submenu"><ul>';
                 foreach ( $sub_terms as $term ) {
                     $term_items .= '<li><a href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
