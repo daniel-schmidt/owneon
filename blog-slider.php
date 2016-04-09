@@ -84,12 +84,12 @@
                     
                 else :
                     // we are displaying a taxonomoy term
-                    $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+//                     $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
                     $args = array(
                             'cat' => 12,
                             'post_type' => 'post',
-                            'posts_per_page' => 2,
-                            'paged' => $paged
+                            'posts_per_page' => 2
+//                             'paged' => $paged
 //                             'orderby' => 'rand'
                         );
                     $latest_blog_posts = new WP_Query( $args );

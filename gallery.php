@@ -56,31 +56,63 @@
         ?>
             
             <div id="gallery-container">
-            
-                <div id="gallery-prev" class="slider-item">
-                    <a href=#gallery>prev</a>
-                </div>
-                
-                <div id="image-container" class="slider-item">
-                    <?php 
-                    // if we are a Taxonomy, we display every item from the main loop
-                                       
-                    if( is_tax() ) :
+                <?php 
+                // if we are a Taxonomy, we display every item from the main loop
+                                
+                if( is_tax() ) :
+                        
+                    // left navigation panel for newer posts
+                    $ppl_link = get_previous_posts_link();
+                    if( isset( $ppl_link ) ) :
+                    ?>
+                        <a href="<?php $ppl=explode('"', $ppl_link ); 
+                            $ppl_url=$ppl[1];
+                            echo esc_url($ppl_url . '#galerie'); ?>
+                            ">
+                            zurück
+                        </a>
+                    <?php else : ?>
+                        <!-- do something if there is no previous post? -->
+                    <?php endif; ?>
+                        
+                    <!-- the main loop, putting out the attached images -->
+                    <div id="image-container" class="slider-item">
+                        <?php 
                         if ( have_posts() ) : ?>
                             <div id="img-row-1" class="img-row">
                             <?php $count = 0;
                             while ( have_posts() ) : the_post();
                                 echo '<a href="' . esc_url(wp_get_attachment_url( get_the_ID() )) . '">'.wp_get_attachment_image( get_the_ID(), $size='medium' ) .'</a>';
-                                    if( $count == 3 ) {
+                                    if( $count == 3 ) :
                                         echo '</div><div id="img-row-2" class="img-row">';
-                                    }
+                                    endif;
                                     $count++;
                             endwhile; ?>
                             </div>
+                        <?php 
+                        endif; ?>
+                    </div> <!--image-container-->
+                    <?php
+                        // right navigation panel for older posts
+                        $npl_link = get_next_posts_link();
+                        if( isset( $npl_link ) ) :
+                        ?>
+                            <a href="<?php $npl=explode('"', $npl_link ); 
+                                $npl_url=$npl[1];
+                                echo esc_url($npl_url . '#galerie'); ?>
+                                ">
+                                weiter
+                            </a>
+                        <?php else : ?>
+                            <!-- do something if there is no previous post? -->
                         <?php endif;
                     
                     // we are not in Gallery mode, so we display some (random) images
-                    else :
+                    else : ?>
+                    
+                    <div id="image-container" class="slider-item">
+                        <?php
+                        // main output of the latest images from gallery
                         $args = array(
                             'post_type' => 'attachment',
                             'tax_query' => 'Galerie',
@@ -103,15 +135,15 @@
                             wp_reset_postdata();
                             echo '</div>';
                         }
-                        wp_reset_postdata();
-                    endif;
-                    ?>
-                </div> <!--image-container-->
-            
-                <div id="gallery-next" class="slider-item">
-                    <a href=#gallery>more</a>
-                </div>
-                
+                        wp_reset_postdata(); ?>
+                        
+                        </div> <!--image-container-->
+                        
+<!--                    Link to next page of all-images gallery -->
+                        <div id="gallery-next" class="slider-item">
+                            <a href="<?php echo esc_url( get_term_link( 'Galerie', 'galerie_kategorie' ) . '&paged=2#galerie' ); ?>">more</a>
+                        </div>
+                    <?php endif;  // non-gallery mode ?>                
             </div> <!--gallery-containre-->
         </div>  <!--foreground-->
     </div>
