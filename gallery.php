@@ -1,7 +1,8 @@
 <div id="galerie" class="page">
 
-
     <?php // menu buttons from gallery categories
+    $curr_term = '';
+//     $sub_terms = array();
     $main_terms = get_terms( 'galerie_kategorie', array(
         'orderby' => 'slug',
         'parent' => 0
@@ -18,10 +19,33 @@
                 'parent' => $main_term->term_id
             ) );
             
+            if( is_tax() ) {
+                $curr_term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+                $parent = get_term($curr_term->parent, get_query_var('taxonomy') );
+                $sub_terms = get_terms( 'galerie_kategorie', array(
+                    'orderby' => 'slug',
+        //             'order' => 'DESC',
+                    'parent' => $curr_term->term_id 
+                ) );
+                
+                // if we are in the lowest level, we display the other 
+                if ( empty( $sub_terms ) && !in_array( $curr_term, $terms ) ) {
+                    $sub_terms = get_terms( get_query_var('taxonomy'), array(
+                        'orderby' => 'slug',
+                        'parent' => $parent->term_id
+                    ) );
+                }
+            }
+            
+            // second level of terms as menu
             if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
             $term_items='<nav><ul>';
             foreach ( $terms as $term ) {
-                $term_items .= '<li class="foreground"><a href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
+                $term_items .= '<li class="foreground';
+                if( $curr_term == $term || $parent==$term ) {
+                    $term_items .= ' current-menu-item';
+                }
+                $term_items .= '"><a href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
             }
             $term_items .= '</ul></nav>';
             echo $term_items;
@@ -35,26 +59,15 @@
         <div class="foreground full-width">
             <nav class="submenu">
             <?php if ( is_tax() ) {
-                $curr_term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-                $sub_terms = get_terms( 'galerie_kategorie', array(
-                    'orderby' => 'slug',
-                    'order' => 'DESC',
-                    'parent' => $curr_term->term_id 
-                ) );
-                
-                // if we are in the lowest level, we display the other 
-                if ( empty( $sub_terms ) && !in_array( $curr_term, $terms ) ) {
-                    $parent = get_term($curr_term->parent, get_query_var('taxonomy') );
-                    $sub_terms = get_terms( get_query_var('taxonomy'), array(
-                        'orderby' => 'name',
-                        'parent' => $parent->term_id
-                    ) );
-                }
                 
                 if ( ( !empty( $sub_terms ) || !is_wp_error( $sub_terms ) ) && !in_array( $curr_term, $main_terms ) ) {
                     $term_items='<ul>';
                     foreach ( $sub_terms as $term ) {
-                        $term_items .= '<li><a href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
+                        $term_items .= '<li';
+                        if( $curr_term == $term ) {
+                            $term_items .= ' class="current-menu-item"';
+                        }
+                        $term_items .= '><a href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
                     }
                     $term_items .= '</ul>';
                     echo $term_items;
@@ -62,12 +75,12 @@
             }
             ?>
             </nav>
-            
             <div id="gallery-container">
                 <?php 
                 // if we are a Taxonomy, we display every item from the main loop
                                 
                 if( is_tax() ) :
+                    echo '<p class="gallery-description">' . $curr_term->description . '</p>';
                         
                     // left navigation panel for newer posts
                     $ppl_link = get_previous_posts_link();
@@ -117,7 +130,7 @@
                     
                     // we are not in Gallery mode, so we display some (random) images
                     else : ?>
-                    
+                    <p class="gallery-description"><?php echo term_description( 0, 'galerie_kategorie' )?></p>;
                     <div id="image-container" class="slider-item">
                         <?php
                         // main output of the latest images from gallery

@@ -1200,3 +1200,7 @@ nav .active {
     width: auto;
     margin-left: 1rem;
 }
+
+.current-menu-item a {
+    color: blue;
+}
