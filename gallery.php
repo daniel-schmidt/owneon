@@ -161,12 +161,12 @@
                         
                         </div> <!--image-container-->
                         
-<!--                    Link to next page of all-images gallery -->
+                        <!-- Link to next page of all-images gallery -->
                         <div id="gallery-next" class="slider-item">
                             <a href="<?php echo esc_url( get_term_link( 'Galerie', 'galerie_kategorie' ) . '&paged=2#galerie' ); ?>">more</a>
                         </div>
                         
-                        <!--description of term -->
+                        <!-- Description of term -->
                          <p class="gallery-description"><?php 
                             $galerie_term = get_term_by( 'name', 'Galerie', 'galerie_kategorie');
                             echo $galerie_term->description;?>

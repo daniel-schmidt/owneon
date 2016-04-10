@@ -60,7 +60,8 @@
                             <div class="slider-item blog-main">
                             <?php get_template_part( 'content', get_post_format() ); ?>
                             </div>
-                        <?php endwhile;
+                        <?php 
+                        endwhile;
                     endif;
                     
                     // right navigation panel for older posts
@@ -84,14 +85,10 @@
                     
                 else :
                     // we are displaying a taxonomoy term
-//                     $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
                     $args = array(
-                            'cat' => 12,
-                            'post_type' => 'post',
-                            'posts_per_page' => 2
-//                             'paged' => $paged
-//                             'orderby' => 'rand'
+                            'orderby' => 'date'
                         );
+	
                     $latest_blog_posts = new WP_Query( $args );
                     if ( $latest_blog_posts->have_posts() ) :
                         while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post(); ?>
@@ -103,6 +100,5 @@
                     wp_reset_postdata();
                 endif;?>          
 
-                
             </div>
         </div>
