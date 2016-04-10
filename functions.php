@@ -97,14 +97,7 @@ function owneon_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'owneon_scripts' );
 
-function get_all_taxonomy_entries( $query ) {
-  if ( is_tax() ) {
-    $query->set( 'posts_per_page', -1 );
-    return;
-  }
-}
-add_action( 'pre_get_posts', 'get_all_taxonomy_entries', 1 );
-
+// functions to set class "foreground" at menu items etc.
 function add_foreground_class_nofront( $classes, $item ) {
   if( !is_front_page() ) {
     $classes[] = 'foreground';
@@ -122,10 +115,8 @@ add_filter( 'post_class', 'add_foreground_class_nofront', 10, 2 );
 // from https://codex.wordpress.org/Pagination
 function tax_paged_query( $query ) {
   // do not alter the query on wp-admin pages and only alter it if it's the main query
-  if (!is_admin() && $query->is_main_query()){
-    if(is_tax()){
-      $query->set('posts_per_page', 8);
-    }
+  if ( !is_admin() && $query->is_main_query() && is_tax() ) {
+      $query->set( 'posts_per_page', 8 );
   }
 }
 add_action( 'pre_get_posts', 'tax_paged_query' );
