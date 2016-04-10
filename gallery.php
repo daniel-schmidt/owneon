@@ -80,8 +80,7 @@
                 // if we are a Taxonomy, we display every item from the main loop
                                 
                 if( is_tax() ) :
-                    echo '<p class="gallery-description">' . $curr_term->description . '</p>';
-                        
+                                           
                     // left navigation panel for newer posts
                     $ppl_link = get_previous_posts_link();
                     if( isset( $ppl_link ) ) :
@@ -114,6 +113,7 @@
                         endif; ?>
                     </div> <!--image-container-->
                     <?php
+                    
                         // right navigation panel for older posts
                         $npl_link = get_next_posts_link();
                         if( isset( $npl_link ) ) :
@@ -127,12 +127,13 @@
                         <?php else : ?>
                             <!-- do something if there is no previous post? -->
                         <?php endif;
-                    
-                    // we are not in Gallery mode, so we display some (random) images
-                    else : ?>
-                    <p class="gallery-description"><?php echo term_description( 0, 'galerie_kategorie' )?></p>;
+                        echo '<p class="gallery-description">' . $curr_term->description . '</p>';
+                        
+                    else : 
+                    // we are not in Gallery mode, so we display some (random) images ?>
                     <div id="image-container" class="slider-item">
                         <?php
+                        
                         // main output of the latest images from gallery
                         $args = array(
                             'post_type' => 'attachment',
@@ -164,6 +165,13 @@
                         <div id="gallery-next" class="slider-item">
                             <a href="<?php echo esc_url( get_term_link( 'Galerie', 'galerie_kategorie' ) . '&paged=2#galerie' ); ?>">more</a>
                         </div>
+                        
+                        <!--description of term -->
+                         <p class="gallery-description"><?php 
+                            $galerie_term = get_term_by( 'name', 'Galerie', 'galerie_kategorie');
+                            echo $galerie_term->description;?>
+                        </p>
+                        
                     <?php endif;  // non-gallery mode ?>                
             </div> <!--gallery-containre-->
         </div>  <!--foreground-->
