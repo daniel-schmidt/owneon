@@ -22,8 +22,7 @@
                 <a href="#blog">vvv Blog vvv</a>
             </div>
         </header>-->
-        <h1>Hallo und so!</h1>
-        <p> hier könnte viel viel Text über allen möglichen blödsinn stehen. </p>
+        
         <div id="fp-headline">
             <a href="#page-head">
                 <img src="img/banner_head.png" alt="neonlicht fotografie Logo klein"/>
@@ -36,12 +35,31 @@
                 </ul>
             </nav>
         </div> <!--headline-->
-               
-       
-        <?php get_template_part('blog-slider'); ?>
-        <?php get_template_part('gallery'); ?>
         
-        <div id="info" class="page">
-            Text über mich und Impressum...
+        <div id="frontpage" class="page">            
+        <?php 
+        if( is_front_page() ) {
+            while ( have_posts() ) {
+                the_post();
+                get_template_part( 'content', 'page' );
+            } // end of the loop.
+        } else {
+            $frontpage_id = get_option( 'page_on_front' ); 
+            $fps = get_pages( array( 
+                    'include' => $frontpage_id ) );
+            if( $fps ) {
+                foreach( $fps as $fp ) {
+                    echo '<h1>'. $fp->post_title . '</h1>';
+                    echo $fp->post_content;
+                }
+            }
+        } ?>
         </div>
+        <?php
+            get_template_part('blog-slider');
+            get_template_part('gallery');
+            get_template_part('page-viewer');
+        ?>
+        
+
 <?php get_footer(); ?>

@@ -989,9 +989,6 @@ object {
 
 /* =Pages
 -----------------------------------------------*/
-.page .site-footer {
-  display: none;
-}
 /* Front-Page */
 .home .content-area{
   background-color: transparent;

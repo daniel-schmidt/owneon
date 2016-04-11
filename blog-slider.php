@@ -46,7 +46,7 @@
         
             <div class="content-area content-centered">
                 <?php
-                if( !is_tax() ) : ?>
+                if( is_category() ) : ?>
                     <!-- left navigation panel for newer posts -->
                     <div id='prev-container' class="slider-item">
                         <?php 
@@ -134,7 +134,7 @@
                     
                 <?php    
                 else :
-                    // we are displaying a taxonomoy term
+                    // we are not displaying a category
                     $args = array(
                             'orderby' => 'date'
                         );
