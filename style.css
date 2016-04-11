@@ -1169,6 +1169,7 @@ nav .active {
     margin-top: 1rem;
     max-height: 14rem;
 }
+
 /* = gallery
 -------------------------------------------------------------- */
 
@@ -1176,6 +1177,7 @@ nav .active {
     display: inline-block;
 /*     vertical-align: middle; */
     vertical-align: top;
+    float: left;
 }
 #gallery-prev {
     margin-right: 2rem;

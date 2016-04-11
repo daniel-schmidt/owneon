@@ -35,24 +35,43 @@
                 <?php
                 if( !is_tax() ) : ?>
                     <!-- left navigation panel for newer posts -->
-                    <?php $prev_post = get_adjacent_post( true, '', false ); ?>
-                    
-                    <?php if ( is_a( $prev_post, 'WP_Post' ) ) : ?>
-                        <!-- we have a previous post, show nav div -->
-                        <a href="<?php $ppl=explode('"',get_previous_posts_link()); 
-                            $ppl_url=$ppl[1];
-                            echo esc_url($ppl_url . '#blog'); ?>
-                            ">
-                            <div id="blog-prev" class="blog-side foreground  slider-item">
-                                <h3><?php echo short_title( get_the_title( $prev_post->ID ), '...', 30 ); ?></h3>
-                                <?php echo get_the_post_thumbnail( $prev_post->ID, 'thumbnail' ); ?>
-                            </div>
-                        </a>
-                    <?php else : ?>
-                        <!-- if there is no previous post, insert an invisible placeholder -->
-                        <div id="blog-prev" class="blog-side invisible slider-item"></div>
-                    <?php endif ?>
+                    <div id='prev-container' class="slider-item">
+                        <?php 
+                        $curr_cat = get_query_var( 'cat' );
+                        $paged_query_var = (int) get_query_var( 'paged' );
+                        $paged = $paged_query_var;
+                        if( $paged > 0 ) {
+                            $paged--;
+                            $args = array(
+                                    'orderby' => 'date',
+                                    'cat' => $curr_cat,
+                                    'paged' => $paged
+                                );
                 
+                            $prev_posts = new WP_Query( $args );
+                        }
+                        if( isset( $prev_posts ) && $prev_posts->have_posts() ) :
+                            //  we have a previous post, show nav divs
+                            while( $prev_posts->have_posts() ) :
+                            $prev_posts->the_post();?>
+                                <a href="<?php $ppl=explode('"',get_previous_posts_link());
+                                    $ppl_url=$ppl[1];
+                                    echo esc_url($ppl_url . '#blog'); ?>
+                                    ">
+                                    <div class="blog-side blog-prev foreground">
+                                        <h3><?php echo short_title( the_title( '', '', FALSE ), '...', 30 ); ?></h3>
+                                        <?php echo get_the_post_thumbnail( null, 'thumbnail' ); ?>
+                                    </div>
+                                </a>
+                            <?php endwhile; ?>
+                        <?php else : ?>
+                            <!-- if there is no previous post, insert an invisible placeholder -->
+                            <div class="blog-side blog-prev invisible"></div>
+                        <?php endif;
+                        wp_reset_postdata();
+                        ?>
+                    </div> <!-- left navigation panel -->
+                    
                     <!-- main panels with the loop -->
                     <?php
                     if ( have_posts() ) :
@@ -62,27 +81,45 @@
                             </div>
                         <?php 
                         endwhile;
-                    endif;
+                    endif;  // the main loop ?>
                     
-                    // right navigation panel for older posts
-                    $next_post = get_adjacent_post( true, '', true );
-                    
-                    if ( is_a( $next_post, 'WP_Post' ) ) : ?>
-                        <a href="<?php $npl=explode('"',get_next_posts_link()); 
-                            $npl_url=$npl[1];
-                            echo esc_url($npl_url . '#blog'); ?>
-                            ">
-                            <div id="blog-next" class="blog-side foreground  slider-item">
-                                <h3><?php echo short_title( get_the_title( $next_post->ID ), '...', 30); ?></h3>
-                                <?php echo get_the_post_thumbnail( $next_post->ID, 'thumbnail' ); ?>
+                    <!-- right navigation panel for older posts -->
+                    <div id='next-container' class="slider-item">
+                        <?
+                        $paged = $paged_query_var;
+                        if( $paged == 0 ) $paged = 1;
+                        $paged++;
+                        $args = array(
+                                'orderby' => 'date',
+                                'cat' => $curr_cat,
+                                'paged' => $paged
+                            );
+            
+                        $next_posts = new WP_Query( $args );
+
+                        if( $next_posts->have_posts() ) :
+                            while( $next_posts->have_posts() ) :
+                            $next_posts->the_post();?>
+                                <a href="<?php $npl=explode('"',get_next_posts_link()); 
+                                    $npl_url=$npl[1];
+                                    echo esc_url($npl_url . '#blog'); ?>
+                                    ">
+                                    <div class="blog-side blog-next foreground">
+                                        <h3><?php echo short_title( the_title( '', '', FALSE ), '...', 30); ?></h3>
+                                        <?php echo get_the_post_thumbnail( null, 'thumbnail' ); ?>
+                                    </div>
+                                </a>
+                            <?php endwhile; ?>
+                        <?php else : ?>
+                            <!-- if there is no previous post, insert an invisible placeholder -->
+                            <div class="blog-side blog-next invisible">
                             </div>
-                        </a>
-                    <?php else : ?>
-                        <!-- if there is no previous post, insert an invisible placeholder -->
-                        <div id="blog-next" class="blog-side invisible slider-item">
-                        </div>
-                    <?php endif;
+                        <?php endif;
+                        
+                        wp_reset_postdata(); ?>
+                    </div>  <!-- right navigation panel -->
                     
+                <?php    
                 else :
                     // we are displaying a taxonomoy term
                     $args = array(
