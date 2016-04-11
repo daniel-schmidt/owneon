@@ -1,5 +1,5 @@
  <div id="blog" class="page">
-            <div class='post-filters'>
+<!--            <div class='post-filters'>
                 <form>
                 <select name="orderby">
                         <option value='post_date'>Order By Date</option>
@@ -16,19 +16,32 @@
                 </select>
                 <input type="submit" value="Submit">
                 </form>
-            </div>
-            <?php            
+            </div>-->
+            <?php   
+            
+            $categories = get_categories( array(
+                'orderby' => 'name',
+                'parent'  => 0
+            ) );
+            
+            foreach ( $categories as $category ) {
+                printf( '<a href="%1$s"><h1>%2$s</h1></a>',
+                    esc_url( get_category_link( $category->term_id ) . '#blog' ),
+                    esc_html( $category->name )
+                );
+            }
+            
             $categories = get_categories( array(
                 'orderby' => 'name',
                 'childless' => true
             ) );
             if( ! empty( $categories ) ) {
-            $cat_items='<nav><ul>';
-            foreach ( $categories as $cat ) {
-                $cat_items .= '<li class="foreground"><a href="' . esc_url( get_category_link( $cat ) . '#blog' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $cat->name ) ) . '">' . $cat->name . '</a></li>';
-            }
-            $cat_items .= '</ul></nav>';
-            echo $cat_items;
+                $cat_items='<nav><ul>';
+                foreach ( $categories as $cat ) {
+                    $cat_items .= '<li class="foreground"><a href="' . esc_url( get_category_link( $cat ) . '#blog' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $cat->name ) ) . '">' . $cat->name . '</a></li>';
+                }
+                $cat_items .= '</ul></nav>';
+                echo $cat_items;
             }?>
         
             <div class="content-area content-centered">
