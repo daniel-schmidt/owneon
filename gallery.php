@@ -11,7 +11,7 @@
         foreach( $main_terms as $main_term ) {
             
             // main gallery button
-            echo '<a href="' . esc_url( get_category_link( $main_term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $main_term->name ) ) . '">'
+            echo '<a class="gallery-link" href="' . esc_url( get_category_link( $main_term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $main_term->name ) ) . '">'
             . '<h1>' . $main_term->name . '</h1>' .
             '</a>';
             $terms = get_terms( 'galerie_kategorie', array(
@@ -41,11 +41,11 @@
             if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
             $term_items='<nav><ul>';
             foreach ( $terms as $term ) {
-                $term_items .= '<li class="foreground';
+                $term_items .= '<li class="foreground"><a class="gallery-link';
                 if( $curr_term == $term || $parent==$term ) {
-                    $term_items .= ' current-menu-item';
+                    $term_items .= ' gallery-curr-item';
                 }
-                $term_items .= '"><a href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
+                $term_items .= '" href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
             }
             $term_items .= '</ul></nav>';
             echo $term_items;
@@ -57,25 +57,25 @@
     
     <div class="content-area full-width">
         <div class="foreground full-width">
-            <nav class="submenu">
-            <?php if ( is_tax() ) {
-                
-                if ( ( !empty( $sub_terms ) || !is_wp_error( $sub_terms ) ) && !in_array( $curr_term, $main_terms ) ) {
-                    $term_items='<ul>';
-                    foreach ( $sub_terms as $term ) {
-                        $term_items .= '<li';
-                        if( $curr_term == $term ) {
-                            $term_items .= ' class="current-menu-item"';
-                        }
-                        $term_items .= '><a href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
-                    }
-                    $term_items .= '</ul>';
-                    echo $term_items;
-                }
-            }
-            ?>
-            </nav>
             <div id="gallery-container">
+                <nav class="submenu">
+                <?php if ( is_tax() ) {
+                    
+                    if ( ( !empty( $sub_terms ) || !is_wp_error( $sub_terms ) ) && !in_array( $curr_term, $main_terms ) ) {
+                        $term_items='<ul>';
+                        foreach ( $sub_terms as $term ) {
+                            $term_items .= '<li><a class="gallery-link';
+                            if( $curr_term == $term ) {
+                                $term_items .= ' class="gallery-curr-subitem"';
+                            }
+                            $term_items .= '" href="' . esc_url( get_category_link( $term ) . '#galerie' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
+                        }
+                        $term_items .= '</ul>';
+                        echo $term_items;
+                    }
+                }
+                ?>
+                </nav>
                 <?php 
                 // if we are a Taxonomy, we display every item from the main loop
                                 

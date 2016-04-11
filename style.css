@@ -1200,6 +1200,7 @@ nav .active {
     margin-left: 1rem;
 }
 
-.current-menu-item a {
-    color: blue;
+.gallery-curr-item, .gallery-curr-subitem,
+.gallery-curr-item:visited, .gallery-curr-subitem:visited {
+    color: purple;
 }
