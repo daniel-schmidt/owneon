@@ -54,7 +54,7 @@
                             <?php echo $fp->post_title; ?>
                         </h1>
                     </header>
-                    <div class="entry-content">
+                    <div class="entry-content content-centered fixed-width">
                         <?php echo $fp->post_content; ?>
                     </div>
                 <?php endforeach;

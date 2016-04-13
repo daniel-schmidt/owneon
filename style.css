@@ -1067,6 +1067,10 @@ object {
     height: 60rem;
 }
 
+.fixed-width {
+    width: 90rem;
+}
+
 /* = headline
 -------------------------------------------------------------- */
 #fp-headline {
