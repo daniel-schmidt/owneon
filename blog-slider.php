@@ -45,9 +45,12 @@
                     echo $cat_items;
                 }?>
             </header>
+            <div id="blog-description" class="foreground full-width">
+                <?php get_template_part( 'archive-description' ); ?>
+            </div><!-- blog-description -->
             <div class="content-area content-centered">
                 <?php
-                if( is_category() ) : ?>
+                if( is_archive() && !is_tax() ) : ?>
                     <!-- left navigation panel for newer posts -->
                     <div id='prev-container' class="slider-item">
                         <?php 
@@ -56,12 +59,8 @@
                         $paged = $paged_query_var;
                         if( $paged > 0 ) {
                             $paged--;
-                            $args = array(
-                                    'orderby' => 'date',
-                                    'cat' => $curr_cat,
-                                    'paged' => $paged
-                                );
-                
+                            $args = $wp_query->query_vars;
+                            $args['paged'] = $paged;
                             $prev_posts = new WP_Query( $args );
                         }
                         if( isset( $prev_posts ) && $prev_posts->have_posts() ) :
@@ -103,12 +102,10 @@
                         $paged = $paged_query_var;
                         if( $paged == 0 ) $paged = 1;
                         $paged++;
-                        $args = array(
-                                'orderby' => 'date',
-                                'cat' => $curr_cat,
-                                'paged' => $paged
-                            );
-            
+                        
+                        $args = $wp_query->query_vars;
+                        $args['paged'] = $paged;
+
                         $next_posts = new WP_Query( $args );
 
                         if( $next_posts->have_posts() ) :
@@ -135,7 +132,7 @@
                     
                 <?php    
                 else :
-                    // we are not displaying a category ?>
+                    // we are not displaying an archive query ?>
                     <div id='prev-container' class="slider-item">
                         <div class="blog-side blog-prev invisible"></div>
                     </div>
