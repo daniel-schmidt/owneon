@@ -31,7 +31,7 @@
                 <ul>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#galerie" class="active">Galerie</a></li>
-                    <li><a href="#info">Infos</a></li>
+                    <li><a href="#infos">Infos</a></li>
                 </ul>
             </nav>
         </div> <!--headline-->
