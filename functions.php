@@ -100,18 +100,12 @@ function owneon_scripts() {
 add_action( 'wp_enqueue_scripts', 'owneon_scripts' );
 
 // functions to set class "foreground" at menu items etc.
-function add_foreground_class_nofront( $classes, $item ) {
-  if( !is_front_page() ) {
-    $classes[] = 'foreground';
-  }
-  return $classes;  
-}
 function add_foreground_class( $classes, $item ) {
   $classes[] = 'foreground';
   return $classes;  
 }
 add_filter( 'nav_menu_css_class', 'add_foreground_class', 10, 2 );
-add_filter( 'post_class', 'add_foreground_class_nofront', 10, 2 );
+add_filter( 'post_class', 'add_foreground_class', 10, 2 );
 
 // function to set the query for taxonomy archives paged with n elements
 // from https://codex.wordpress.org/Pagination

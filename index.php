@@ -40,8 +40,11 @@
         <?php 
         if( is_front_page() ) {
             while ( have_posts() ) {
-                the_post();
-                get_template_part( 'content', 'page' );
+                the_post(); ?>
+                <div class="entry-content content-centered fixed-width">
+                    <?php get_template_part( 'content', 'page' ); ?>
+                </div>
+            <?php
             } // end of the loop.
         } else {
             $frontpage_id = get_option( 'page_on_front' ); 
