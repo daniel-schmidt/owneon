@@ -1,4 +1,4 @@
- <div id="blog" class="page">
+ <div id="blog" class="section">
 <!--            <div class='post-filters'>
                 <form>
                 <select name="orderby">
@@ -17,33 +17,34 @@
                 <input type="submit" value="Submit">
                 </form>
             </div>-->
-            <?php   
-            
-            $main_categories = get_categories( array(
-                'orderby' => 'name',
-                'parent'  => 0
-            ) );
-            
-            foreach ( $main_categories as $category ) {
-                printf( '<a href="%1$s"><h1>%2$s</h1></a>',
-                    esc_url( get_category_link( $category->term_id ) . '#blog' ),
-                    esc_html( $category->name )
-                );
-            }
-            
-            $categories = get_categories( array(
-                'orderby' => 'name',
-                'childless' => true
-            ) );
-            if( ! empty( $categories ) ) {
-                $cat_items='<nav><ul>';
-                foreach ( $categories as $cat ) {
-                    $cat_items .= '<li class="foreground"><a href="' . esc_url( get_category_link( $cat ) . '#blog' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $cat->name ) ) . '">' . $cat->name . '</a></li>';
+            <header class="section-header">
+                <?php   
+                
+                $main_categories = get_categories( array(
+                    'orderby' => 'name',
+                    'parent'  => 0
+                ) );
+                
+                foreach ( $main_categories as $category ) {
+                    printf( '<h1 class="section-heading"><a href="%1$s">%2$s</a></h1>',
+                        esc_url( get_category_link( $category->term_id ) . '#blog' ),
+                        esc_html( $category->name )
+                    );
                 }
-                $cat_items .= '</ul></nav>';
-                echo $cat_items;
-            }?>
-        
+                
+                $categories = get_categories( array(
+                    'orderby' => 'name',
+                    'childless' => true
+                ) );
+                if( ! empty( $categories ) ) {
+                    $cat_items='<nav class="section-menu-container"><ul class="section-menu">';
+                    foreach ( $categories as $cat ) {
+                        $cat_items .= '<li class="foreground section-menu-item"><a class="blog-link" href="' . esc_url( get_category_link( $cat ) . '#blog' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $cat->name ) ) . '">' . $cat->name . '</a></li>';
+                    }
+                    $cat_items .= '</ul></nav>';
+                    echo $cat_items;
+                }?>
+            </header>
             <div class="content-area content-centered">
                 <?php
                 if( is_category() ) : ?>
@@ -149,24 +150,26 @@
                         $count = 0;
                         while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post();
                             if( $count < 2 ): ?>
-                                <div class="slider-item blog-main foreground">
+                                <div class="slider-item blog-main">
                                     <?php get_template_part( 'content', get_post_format() ); ?>
                                 </div>
                             <?php
-                            else :?>
-                                <div id='next-container' class="slider-item">
+                            else :
+                                if( $count == 2 ) :
+                                    echo '<div id="next-container" class="slider-item">';
+                                endif; ?>
                                     <a href="<?php echo esc_url( get_category_link( $main_categories[0]->term_id ) . '&paged=2#blog' ) ?>">
                                     <div class="blog-side blog-next foreground">
                                         <h3><?php echo short_title( the_title( '', '', FALSE ), '...', 30); ?></h3>
                                         <?php echo get_the_post_thumbnail( null, 'thumbnail' ); ?>
                                     </div>
                                     </a>
-                                </div>
                             <?php
                             endif;
                             $count++;
-                        endwhile;
-                    endif;
+                        endwhile; ?>
+                        </div>
+                    <?php endif;
                     wp_reset_postdata();
                     
                 endif;?>          

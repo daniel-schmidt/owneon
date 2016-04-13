@@ -36,7 +36,7 @@
             </nav>
         </div> <!--headline-->
         
-        <div id="frontpage" class="page">            
+        <div id="frontpage" class="section">            
         <?php 
         if( is_front_page() ) {
             while ( have_posts() ) {
@@ -47,12 +47,18 @@
             $frontpage_id = get_option( 'page_on_front' ); 
             $fps = get_pages( array( 
                     'include' => $frontpage_id ) );
-            if( $fps ) {
-                foreach( $fps as $fp ) {
-                    echo '<h1>'. $fp->post_title . '</h1>';
-                    echo $fp->post_content;
-                }
-            }
+            if( $fps ) :
+                foreach( $fps as $fp ) : ?>
+                    <header class="section-header">
+                        <h1 class="section-heading">
+                            <?php echo $fp->post_title; ?>
+                        </h1>
+                    </header>
+                    <div class="entry-content">
+                        <?php echo $fp->post_content; ?>
+                    </div>
+                <?php endforeach;
+            endif;
         } ?>
         </div>
         <?php

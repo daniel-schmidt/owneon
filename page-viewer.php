@@ -5,26 +5,28 @@
         'exclude' => $frontpage_id
     ) ); 
     foreach ( $pages as $page ) : ?>
-        <div id="<?php echo $page->post_name; ?>" class="page">
-            <h1>
-                <a href=" <?php echo get_page_link( $page->ID ) . '#'. $page->post_name; ?> ">
-                    <?php echo $page->post_title; ?>
-                </a>
-            </h1>
-            
-            <?php            
-            $sub_pages = get_pages( array(
-                'child_of' => $page->ID
-                ) );
-            $menu_items='<nav><ul>';
-            foreach( $sub_pages as $sub_page ) {
-                $menu_items .= '<li class="foreground"><a href="' . get_page_link( $sub_page->ID ) . '#'. $page->post_name . '">';
-                $menu_items .= $sub_page->post_title;
-                $menu_items .= '</li></a>';
-            }
-            $menu_items .= '</ul></nav>';
-            echo $menu_items;
-            
+        <div id="<?php echo $page->post_name; ?>" class="section">
+            <header class="section-header">
+                <h1 class="section-heading">
+                    <a href=" <?php echo get_page_link( $page->ID ) . '#'. $page->post_name; ?> ">
+                        <?php echo $page->post_title; ?>
+                    </a>
+                </h1>
+                
+                <?php            
+                $sub_pages = get_pages( array(
+                    'child_of' => $page->ID
+                    ) );
+                $menu_items='<nav><ul>';
+                foreach( $sub_pages as $sub_page ) {
+                    $menu_items .= '<li class="foreground"><a href="' . get_page_link( $sub_page->ID ) . '#'. $page->post_name . '">';
+                    $menu_items .= $sub_page->post_title;
+                    $menu_items .= '</li></a>';
+                }
+                $menu_items .= '</ul></nav>';
+                echo $menu_items; ?>
+            </header>
+            <?php 
             $count = 0;
                 if( have_posts() ) :
                     while ( have_posts() ) :

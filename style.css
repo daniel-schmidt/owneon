@@ -1040,7 +1040,7 @@ object {
     background-attachment: fixed;
  }
  
-.page, #page-head {
+.section, #page-head {
     padding-top: 9rem; /*4.5 for headline, 4.5 as separator*/
     min-height: 100rem;
     text-align: center;
@@ -1183,10 +1183,13 @@ nav .active {
     margin-left: 2rem;
 }
 #image-container {
-    width: 90%;
+    width: 80%;
 /*     background-color: yellow; */
 }
-
+#galerie .submenu, #galerie-aside {
+    width: 20%;
+    float: right;
+}
 .img-row {
     width: 100%;
     height: 23rem;
