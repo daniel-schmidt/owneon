@@ -19,12 +19,12 @@
             </div>-->
             <?php   
             
-            $categories = get_categories( array(
+            $main_categories = get_categories( array(
                 'orderby' => 'name',
                 'parent'  => 0
             ) );
             
-            foreach ( $categories as $category ) {
+            foreach ( $main_categories as $category ) {
                 printf( '<a href="%1$s"><h1>%2$s</h1></a>',
                     esc_url( get_category_link( $category->term_id ) . '#blog' ),
                     esc_html( $category->name )
@@ -134,20 +134,41 @@
                     
                 <?php    
                 else :
-                    // we are not displaying a category
+                    // we are not displaying a category ?>
+                    <div id='prev-container' class="slider-item">
+                        <div class="blog-side blog-prev invisible"></div>
+                    </div>
+                    <?php 
                     $args = array(
-                            'orderby' => 'date'
+                            'orderby' => 'date',
+                            'posts_per_page' => 4
                         );
 	
                     $latest_blog_posts = new WP_Query( $args );
                     if ( $latest_blog_posts->have_posts() ) :
-                        while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post(); ?>
-                        <div class="slider-item blog-main foreground">
-                            <?php get_template_part( 'content', get_post_format() ); ?>
-                            </div>
-                        <?php endwhile;
+                        $count = 0;
+                        while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post();
+                            if( $count < 2 ): ?>
+                                <div class="slider-item blog-main foreground">
+                                    <?php get_template_part( 'content', get_post_format() ); ?>
+                                </div>
+                            <?php
+                            else :?>
+                                <div id='next-container' class="slider-item">
+                                    <a href="<?php echo esc_url( get_category_link( $main_categories[0]->term_id ) . '&paged=2#blog' ) ?>">
+                                    <div class="blog-side blog-next foreground">
+                                        <h3><?php echo short_title( the_title( '', '', FALSE ), '...', 30); ?></h3>
+                                        <?php echo get_the_post_thumbnail( null, 'thumbnail' ); ?>
+                                    </div>
+                                    </a>
+                                </div>
+                            <?php
+                            endif;
+                            $count++;
+                        endwhile;
                     endif;
                     wp_reset_postdata();
+                    
                 endif;?>          
 
             </div>
