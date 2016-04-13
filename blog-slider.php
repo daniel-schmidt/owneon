@@ -45,14 +45,14 @@
                     echo $cat_items;
                 }?>
             </header>
-            <div id="blog-description" class="foreground full-width">
-                <?php get_template_part( 'archive-description' ); ?>
-            </div><!-- blog-description -->
             <div class="content-area content-centered">
+                <div id="blog-description" class="foreground full-width">
+                    <?php get_template_part( 'archive-description' ); ?>
+                </div><!-- blog-description -->
                 <?php
                 if( is_archive() && !is_tax() ) : ?>
                     <!-- left navigation panel for newer posts -->
-                    <div id='prev-container' class="slider-item">
+                    <div id='prev-container' class="nav-container slider-item">
                         <?php 
                         $curr_cat = get_query_var( 'cat' );
                         $paged_query_var = (int) get_query_var( 'paged' );
@@ -97,7 +97,7 @@
                     endif;  // the main loop ?>
                     
                     <!-- right navigation panel for older posts -->
-                    <div id='next-container' class="slider-item">
+                    <div id='next-container' class="nav-container slider-item">
                         <?
                         $paged = $paged_query_var;
                         if( $paged == 0 ) $paged = 1;
@@ -153,7 +153,7 @@
                             <?php
                             else :
                                 if( $count == 2 ) :
-                                    echo '<div id="next-container" class="slider-item">';
+                                    echo '<div id="next-container" class="nav-container slider-item">';
                                 endif; ?>
                                     <a href="<?php echo esc_url( get_category_link( $main_categories[0]->term_id ) . '&paged=2#blog' ) ?>">
                                     <div class="blog-side blog-next foreground">

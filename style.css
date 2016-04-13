@@ -816,6 +816,10 @@ body > .show-img-button {
 .page-title {
   font-family: ColaborateLight;
 }
+.entry-title {
+    text-align: left;
+}
+
 .entry-title a {
 	text-decoration: none;
 	color: #fd5;
@@ -826,18 +830,22 @@ body > .show-img-button {
 .entry-meta {
 	font-size: 14px;
 	font-size: 1.4rem;
+        text-align: left;
 }
 .cat-links,
 .tags-links {
 	display: block;
 }
 .more-link {
-  	background-color: #fffae6;
-	color: #2e2a29;
+/*   	background-color: #fffae6; */
+/* 	color: #2e2a29; */
 	text-decoration: none;
 	text-align: center;
-	padding: 1rem;
+	padding: 0.5rem;
+        margin: 0.5rem;
+        margin-left: 2rem;
 	display: inline-block;
+        border: 1px solid #fd5;
 }
 .more-link:hover {
   	background-color: #fff5cc;
@@ -1002,17 +1010,6 @@ object {
 }
 
 
-.foreground{
-	background-color: rgba(0,0,0,0.70);
-	margin: 2rem 2rem 0 0;
-	box-shadow: 2px 2px 7px rgba(0,0,0,0.70);
-}
-
-.invisible {
-    margin: 2rem 2rem 0 0;
-    visibility: hidden;
-}
-
 /*****************************************************************
  * NEW stuff for front page template
  *****************************************************************/
@@ -1028,7 +1025,7 @@ object {
  }
  
 .section, #page-head {
-    padding-top: 9rem; /*4.5 for headline, 4.5 as separator*/
+    padding-top: 6.5rem; /*4.5 for headline, 2 as separator*/
     min-height: 100rem;
     text-align: center;
 }
@@ -1039,14 +1036,22 @@ object {
 }
 
 .foreground {
-    background-color: rgba(0,0,0,0.70);
+    background-color: rgba(0,0,0,0.50);
     margin: 2rem 2rem 0 0;
-    box-shadow: 2px 2px 7px rgba(0,0,0,0.70);
+/*     box-shadow: 2px 2px 7px rgba(0,0,0,0.70); */
+}
+.invisible {
+    margin: 2rem 2rem 0 0;
+    visibility: hidden;
 }
 
 .content-centered {
     display: inline-block;
     margin-right: -2rem;    /* correct for right margin of foreground elements */
+}
+
+#blog .content-centered {
+    margin-right: 0;    
 }
 
 .full-width {
@@ -1082,8 +1087,25 @@ object {
     font-size: 2rem;
 }
 
+.section-heading a {
+    color: #fd5;
+    text-decoration: none;
+    font-size: 60px;
+    font-size: 6rem;
+}
+
+.section-heading a:hover,
+.section-heading a:focus,
+.section-heading a:active {
+	color: #e60c0c;
+}
+
 /* = menues
 -------------------------------------------------------------- */
+
+nav ul {
+    margin: 0;
+}
 
 nav li {
     display: inline-block;
@@ -1117,6 +1139,15 @@ nav .active {
 .continue-button {
     margin-top: 20rem;
 }
+.section-menu-item:hover,
+.section-menu-item:focus,
+.section-menu-item:active {
+    background-color: #fff5cc;
+    cursor: pointer;
+}
+.section-menu-item:hover a {
+    color: #e60c0c;
+}
 
 /* = page-head
 -------------------------------------------------------------- */
@@ -1144,6 +1175,7 @@ nav .active {
     width: 25rem;
     height: 25rem;
     padding: 1rem 2rem;
+    text-align: left;
 }
 
 .blog-main img {
@@ -1157,7 +1189,34 @@ nav .active {
     margin-top: 1rem;
     max-height: 14rem;
 }
-
+.blog-next {
+    margin-right: 0;
+}
+.nav-container a {
+    text-decoration: none;
+}
+.blog-side:hover,
+.blog-side:focus,
+.blog-side:active {
+    background-color: #fff5cc;
+}
+.blog-side:hover h3,
+.blog-side:focus h3,
+.blog-side:active h3 {
+    color: #e60c0c;
+}
+#blog-description {
+    min-height: 4.5rem;
+    line-height: 4.5rem;
+}
+#blog-description h2 {
+    display: inline-block;
+    float: left;
+    padding: 0 2rem;
+}
+#blog-description p {
+    margin: 0;
+}
 /* = gallery
 -------------------------------------------------------------- */
 
