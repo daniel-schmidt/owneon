@@ -42,7 +42,7 @@
             while ( have_posts() ) {
                 the_post(); ?>
                 <div class="entry-content content-centered fixed-width">
-                    <?php get_template_part( 'content', 'page' ); ?>
+                    <?php get_template_part( 'template-parts/content', 'page' ); ?>
                 </div>
             <?php
             } // end of the loop.
@@ -65,9 +65,9 @@
         } ?>
         </div>
         <?php
-            get_template_part('blog-slider');
-            get_template_part('gallery');
-            get_template_part('page-viewer');
+            get_template_part('template-parts/blog-slider');
+            get_template_part('template-parts/gallery');
+            get_template_part('template-parts/page-viewer');
         ?>
         
 
