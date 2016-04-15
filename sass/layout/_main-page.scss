@@ -1,0 +1,28 @@
+.section {
+    padding-top: 6.5rem; /*4.5 for headline, 2 as separator*/
+    min-height: 100rem;
+    text-align: center;
+}
+
+.content-centered {
+    display: inline-block;
+    margin-right: -2rem;    /* correct for right margin of foreground elements */
+}
+
+#blog .content-centered {
+    margin-right: 0;    
+}
+
+.full-width {
+    width: 100%;
+/*     height: 60rem; */
+}
+
+.fixed-width {
+    width: 90rem;
+}
+.slider-item {
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+}

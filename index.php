@@ -23,9 +23,9 @@
             </div>
         </header>-->
         
-        <div id="fp-headline">
-            <a href="#page-head">
-                <img src="img/banner_head.png" alt="neonlicht fotografie Logo klein"/>
+        <div id="fp-headline" class="headline">
+            <a href="#frontpage">
+                <img src="<?php echo esc_url( get_template_directory_uri () . '/img/banner_head.png' )?>" alt="neonlicht fotografie Logo klein"/>
             </a>
             <nav>
                 <ul>

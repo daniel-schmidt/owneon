@@ -1,0 +1,42 @@
+$owneon_pure_colors: (
+    'primary': #ffdb6b,
+    'accent-strong': #d6174a,
+    'accent-weak': #f09c51,
+    'aside': #9faec2,
+);
+
+@function owneon-pure-color( $key: 'primary' ) {
+    @return map-get( $owneon_pure_colors, $key );
+}
+
+$owneon_derived_colors: (
+    'bg': transparentize( mix( black, owneon-pure-color('aside') , 75%), 0.5 ),
+    'fg': mix( white, owneon-pure-color('primary'), 75%)
+);
+
+$owneon_colors: map-merge( $owneon_pure_colors, $owneon_derived_colors );
+
+@function owneon-color( $key: 'primary' ) {
+    @return map-get( $owneon_colors, $key );
+}
+
+$color__background-body: #fff;
+$color__background-screen: #f1f1f1;
+$color__background-hr: #ccc;
+$color__background-button: #e6e6e6;
+$color__background-pre: #eee;
+$color__background-ins: #fff9c0;
+
+$color__text-screen: #21759b;
+$color__text-input: #666;
+$color__text-input-focus: #111;
+$color__link: royalblue;
+$color__link-visited: purple;
+$color__link-hover: midnightblue;
+$color__text-main: #404040;
+
+$color__border-button: #ccc #ccc #bbb;
+$color__border-button-hover: #ccc #bbb #aaa;
+$color__border-button-focus: #aaa #bbb #bbb;
+$color__border-input: #ccc;
+$color__border-abbr: #666;
