@@ -1,12 +1,12 @@
 .section {
-    padding-top: 6.5rem; /*4.5 for headline, 2 as separator*/
-    min-height: 100rem;
+    padding-top: 6.5*$basic_size; /*4.5 for headline, 2 as separator*/
+    min-height: 100*$basic_size;
     text-align: center;
 }
 
 .content-centered {
     display: inline-block;
-    margin-right: -2rem;    /* correct for right margin of foreground elements */
+    margin-right: -1*$basic_margin;    /* correct for right margin of foreground elements */
 }
 
 #blog .content-centered {
@@ -15,11 +15,10 @@
 
 .full-width {
     width: 100%;
-/*     height: 60rem; */
 }
 
 .fixed-width {
-    width: 90rem;
+    width: 90*$basic_size;
 }
 .slider-item {
     display: inline-block;

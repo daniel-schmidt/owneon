@@ -21,8 +21,7 @@ a {
 .section-heading a {
     color: owneon-color( 'primary' );
     text-decoration: none;
-    font-size: 60px;
-    font-size: 6rem;
+    @include font-size(4);
 }
 
 /*.section-heading a:hover,

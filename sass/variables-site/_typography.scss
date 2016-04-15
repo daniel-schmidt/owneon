@@ -1,7 +1,17 @@
 @import "../../fonts/colaborate_font";
-$font__main: ColaborateMedium, sans-serif;
-$font__headline: ColaborateThin, sans-serif;
-$font__navigation: ColaborateLight, sans-serif;
+
+$colaborate_fonts: (
+    'medium': ColaborateMedium,
+    'light': ColaborateLight,
+    'thin': ColaborateThin
+);
+
+@function owneon-font( $key: 'medium' ) {
+    @return map-get( $colaborate_fonts, $key );
+}
+
+$font__main: owneon-font( 'light' ), sans-serif;
+$font__menu: owneon-font( 'light' ), sans-serif;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.5;

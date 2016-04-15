@@ -5,7 +5,7 @@ select,
 textarea {
 	color: owneon-color('fg');
 	font-family: $font__main;
-	@include font-size(1);
+	@include font-size(1.2);
 	line-height: $font__line-height-body;
 }
 

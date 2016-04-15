@@ -53,7 +53,8 @@
 		float: left;
 		position: relative;
                 padding: $basic-size;
-                @include font-size(1.2);
+                font-family: $font__menu;
+                @include font-size(1.4);
                 
 		&:hover > a,
 		&.focus > a {
