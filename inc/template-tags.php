@@ -45,19 +45,50 @@ if ( ! function_exists( 'owneon_entry_footer' ) ) :
  */
 function owneon_entry_footer() {
 	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'owneon' ) );
-		if ( $categories_list && owneon_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'owneon' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
+// 	if ( 'post' === get_post_type() ) {
+// 		/* translators: used between list items, there is a space after the comma */
+// 		$categories_list = get_the_category_list( esc_html__( ', ', 'owneon' ) );
+// 		if ( $categories_list && owneon_categorized_blog() ) {
+// 			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'owneon' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+// 		}
+// 
+// 		/* translators: used between list items, there is a space after the comma */
+// 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'owneon' ) );
+// 		if ( $tags_list ) {
+// 			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'owneon' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+// 		}
+// 	}
+	
+                /* translators: used between list items, there is a space after the comma */
+        $category_list = get_the_category_list( esc_html__( ', ', 'owneon' ) );
 
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'owneon' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'owneon' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
-	}
+        /* translators: used between list items, there is a space after the comma */
+        $tag_list = get_the_tag_list( '', esc_html__( ', ', 'owneon' ) );
+
+        if ( ! owneon_categorized_blog() ) {
+                // This blog only has 1 category so we just need to worry about tags in the meta text
+                if ( '' != $tag_list ) {
+                        $meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'owneon' );
+                } else {
+                        $meta_text = __( 'Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'owneon' );
+                }
+
+        } else {
+                // But this blog has loads of categories so we should probably display them here
+                if ( '' != $tag_list ) {
+                        $meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'owneon' );
+                } else {
+                        $meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'owneon' );
+                }
+
+        } // end check for categories on this blog
+
+        printf(
+                $meta_text,
+                $category_list,
+                $tag_list,
+                get_permalink()
+        );
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';

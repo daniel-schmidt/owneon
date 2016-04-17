@@ -1,8 +1,29 @@
 .widget {
-	margin: 0 0 1.5em;
-
+        padding: $basic-size;
+        @include font-size($font-size-small);
+        
 	/* Make sure select elements fit in widgets. */
 	select {
 		max-width: 100%;
 	}
+	
+	h2 {
+            margin-bottom: $basic-size;
+        }
+        
+        ul, ol {
+            margin: 0 0 $basic-size $basic-size;
+            padding: 0;
+            padding-left: $basic-size;
+        }
+        
+        .collapsing.archives {
+            list-style: none;
+            padding-left: 0;
+            
+            & .sym {
+                margin-right: 3%;
+            }
+        }
+            
 }

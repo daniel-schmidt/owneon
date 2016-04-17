@@ -16,7 +16,8 @@
 
 .site-footer {
 	clear: both;
-	width: $size__site-main;
+        float: left;
+	width: $size__site-main - $size__site-sidebar - $basic_margin ;
 }
 
 .site {

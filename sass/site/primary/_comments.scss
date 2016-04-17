@@ -4,3 +4,6 @@
 .bypostauthor {
 	display: block;
 }
+.comment-metadata, .reply {
+        @include font-size($font-size-small);
+}

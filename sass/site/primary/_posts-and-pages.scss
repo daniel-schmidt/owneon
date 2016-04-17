@@ -27,11 +27,11 @@
 	margin: 0 0 1.5em;
 }
 
-article {
+article, .comments-area, .site-footer {
         padding: 2*$basic_size;
 }
 
-.entry-meta, .simple-footnotes {
+.entry-meta, .simple-footnotes, .site-footer {
         @include font-size($font-size-small);
         text-align: left;
 }

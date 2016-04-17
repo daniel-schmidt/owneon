@@ -283,8 +283,9 @@ h1 {
   font-size: 2.4rem; }
 
 h2 {
-  font-size: 28.8px;
-  font-size: 1.8rem; }
+  font-size: 23.04px;
+  font-size: 1.44rem;
+  font-family: ColaborateLight; }
 
 h3, .notes {
   font-size: 19.2px;
@@ -336,23 +337,24 @@ big {
 --------------------------------------------------------------*/
 .site-content, .content-area {
   float: left;
-  margin: 0 -13.75rem 0 0;
-  width: 57.5rem; }
+  margin: 0 -16.25rem 0 0;
+  width: 60rem; }
 
 .site-main {
-  margin: 0 13.75rem 0 0; }
+  margin: 0 16.25rem 0 0; }
 
 .site-content .widget-area {
   float: right;
   overflow: hidden;
-  width: 13.75rem; }
+  width: 16.25rem; }
 
 .site-footer {
   clear: both;
-  width: 57.5rem; }
+  float: left;
+  width: 42.5rem; }
 
 .site {
-  max-width: 57.5rem;
+  max-width: 60rem;
   display: block;
   margin-left: auto;
   margin-right: auto; }
@@ -518,7 +520,7 @@ ul, ol {
   padding-left: 1.25rem; }
 
 ul {
-  list-style: disc; }
+  list-style: square; }
 
 ol {
   list-style: decimal; }
@@ -848,10 +850,23 @@ a {
 # Widgets
 --------------------------------------------------------------*/
 .widget {
-  margin: 0 0 1.5em;
+  padding: 0.625rem;
+  font-size: 14.4px;
+  font-size: 0.9rem;
   /* Make sure select elements fit in widgets. */ }
   .widget select {
     max-width: 100%; }
+  .widget h2 {
+    margin-bottom: 0.625rem; }
+  .widget ul, .widget ol {
+    margin: 0 0 0.625rem 0.625rem;
+    padding: 0;
+    padding-left: 0.625rem; }
+  .widget .collapsing.archives {
+    list-style: none;
+    padding-left: 0; }
+    .widget .collapsing.archives .sym {
+      margin-right: 3%; }
 
 /*--------------------------------------------------------------
 # Content
@@ -882,10 +897,10 @@ a {
   clear: both;
   margin: 0 0 1.5em; }
 
-article {
+article, .comments-area, .site-footer {
   padding: 1.25rem; }
 
-.entry-meta, .simple-footnotes {
+.entry-meta, .simple-footnotes, .site-footer {
   font-size: 14.4px;
   font-size: 0.9rem;
   text-align: left; }
@@ -914,6 +929,10 @@ article {
 
 .bypostauthor {
   display: block; }
+
+.comment-metadata, .reply {
+  font-size: 14.4px;
+  font-size: 0.9rem; }
 
 /*--------------------------------------------------------------
 # Infinite scroll

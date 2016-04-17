@@ -10,7 +10,8 @@ h1 {
 }
 
 h2 {
-    @include font-size( 1.5*$font-size-base );
+    @include font-size( 1.2*$font-size-base );
+    font-family: owneon-font('light');
 }
 
 h3 {
