@@ -18,7 +18,7 @@
 }
 
 .fixed-width {
-    width: 90*$basic_size;
+    max-width: 90*$basic_size;
 }
 .slider-item {
     display: inline-block;

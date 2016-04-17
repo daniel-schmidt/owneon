@@ -2,9 +2,9 @@
 	display: block;
 }
 
-.hentry {
-/* 	margin: 0 0 1.5em; */
-}
+/*.hentry {
+	margin: 0 0 1.5em;
+}*/
 
 .byline,
 .updated:not(.published){
@@ -16,13 +16,35 @@
 	display: inline;
 }
 
-.page-content,
+/*.page-content,
 .entry-content,
 .entry-summary {
 	margin: 1.5em 0 0;
-}
+}*/
 
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+article {
+        padding: 2*$basic_size;
+}
+
+.entry-meta, .simple-footnotes {
+        @include font-size($font-size-small);
+        text-align: left;
+}
+
+.entry-header {
+    margin-bottom: $basic_size;
+}
+
+.simple-footnotes {
+    margin-bottom: 2*$basic_size;
+}
+
+.notes {
+    @extend h3;
+    margin: 0 0 $basic_size;
 }

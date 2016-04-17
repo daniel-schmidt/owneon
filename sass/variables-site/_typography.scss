@@ -10,6 +10,9 @@ $colaborate_fonts: (
     @return map-get( $colaborate_fonts, $key );
 }
 
+$font-size-base:  1.2;
+$font-size-small: 0.9;
+
 $font__main: owneon-font( 'light' ), sans-serif;
 $font__menu: owneon-font( 'light' ), sans-serif;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;

@@ -1,4 +1,4 @@
-.content-area {
+.site-content, .content-area {
 	float: left;
 	margin: 0 (-$size__site-sidebar) 0 0;
 	width: $size__site-main;
@@ -17,4 +17,9 @@
 .site-footer {
 	clear: both;
 	width: $size__site-main;
+}
+
+.site {
+    max-width: $size__site-main;
+    @include center-block();
 }

@@ -14,6 +14,10 @@
 /*     box-shadow: 2px 2px 7px rgba(0,0,0,0.70); */
 }
 
+.single .foreground {
+    background-color: owneon-color('bg-dark');
+}
+
 .invisible {
     margin: $basic_margin $basic_margin 0 0;
     visibility: hidden;

@@ -1,5 +1,7 @@
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 2*$basic-size 2*$basic-size;
+        padding: 0;
+        padding-left: 2*$basic-size;
 }
 
 ul {
@@ -21,5 +23,5 @@ dt {
 }
 
 dd {
-	margin: 0 1.5em 1.5em;
+	margin: 0 $basic-size $basic-size;
 }

@@ -1,14 +1,17 @@
 .wp-caption {
-	margin-bottom: 1.5em;
+        margin-top: 1.2%; // aligns top of floating images in text to paragraph
+	margin-bottom: 2*$basic-size;
 	max-width: 100%;
 
 	img[class*="wp-image-"] {
 		@include center-block;
 	}
 
-	.wp-caption-text {
-		margin: 0.8075em 0;
-	}
+}
+
+.wp-caption-text {
+        margin: $basic-size 0 0;
+        @include font-size($font-size-small);
 }
 
 .wp-caption-text {

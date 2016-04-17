@@ -1,6 +1,7 @@
 a {
 	color: owneon-color( 'accent-weak' );
-            
+        text-decoration: none;
+        
 	&:visited {
 		color: mix( gray, owneon-color( 'accent-weak' ), 40%);
 	}
@@ -20,7 +21,6 @@ a {
 
 .section-heading a {
     color: owneon-color( 'primary' );
-    text-decoration: none;
     @include font-size(4);
 }
 
