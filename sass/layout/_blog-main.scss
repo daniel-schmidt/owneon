@@ -44,7 +44,28 @@
     display: inline-block;
     float: left;
     padding: 0 2rem;
+    margin-bottom: 0;
 }
 #blog-description p {
     margin: 0;
+}
+
+.taxonomy-description {
+    display: inline-block;
+    float: left;
+}
+
+#prev-container {
+    clear: both;
+}
+
+/* fix issues with additional space after header due to line-height */
+.section-header {
+    line-height: 0;
+    h1, nav {
+        line-height: $font__line-height-body;
+    }
+    h1 {
+        margin: 0;
+    }
 }
