@@ -1,3 +1,12 @@
+<?php   
+
+$main_categories = get_categories( array(
+    'orderby' => 'name',
+    'parent'  => 0
+) );
+
+foreach ( $main_categories as $category ) :
+?>
  <div id="blog" class="section">
 <!--            <div class='post-filters'>
                 <form>
@@ -18,19 +27,12 @@
                 </form>
             </div>-->
             <header class="section-header">
-                <?php   
+                <?php
+                printf( '<h1 class="section-heading"><a href="%1$s">%2$s</a></h1>',
+                    esc_url( get_category_link( $category->term_id ) . '#blog' ),
+                    esc_html( $category->name )
+                );
                 
-                $main_categories = get_categories( array(
-                    'orderby' => 'name',
-                    'parent'  => 0
-                ) );
-                
-                foreach ( $main_categories as $category ) {
-                    printf( '<h1 class="section-heading"><a href="%1$s">%2$s</a></h1>',
-                        esc_url( get_category_link( $category->term_id ) . '#blog' ),
-                        esc_html( $category->name )
-                    );
-                }
                 
                 $categories = get_categories( array(
                     'orderby' => 'name',
@@ -47,7 +49,10 @@
             </header>
             <div class="content-area content-centered">
                 <div id="blog-description" class="foreground full-width">
-                    <?php get_template_part( 'template-parts/archive-description' ); ?>
+                    <?php 
+                    // include with keeping variables available
+                    include(locate_template('template-parts/archive-description.php'));
+                    ?>
                 </div><!-- blog-description -->
                 <?php
                 if( is_archive() && !is_tax() ) : ?>
@@ -173,3 +178,4 @@
 
             </div>
         </div>
+<?php endforeach; //looping through all top level categories?>

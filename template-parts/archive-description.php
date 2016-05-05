@@ -46,17 +46,22 @@
             _e( 'Chats', 'owneon' );
 
     else :
-//             _e( 'Archives', 'owneon' );
+            echo get_cat_name( $category->term_id );
 
     endif;
 ?>
 </h2>
+<div class="taxonomy-description">
 <?php
     if( is_archive() && !is_tax() ) :
         // Show an optional term description.
         $term_description = term_description();
-        if ( ! empty( $term_description ) ) :
-                printf( '<div class="taxonomy-description">%s</div>', $term_description );
-        endif;
+    else :
+        $term_description = term_description( $category->term_id );
+    endif;
+    
+    if ( ! empty( $term_description ) ) :
+            echo $term_description;
     endif;
 ?>
+</div>
