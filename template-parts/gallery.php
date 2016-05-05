@@ -203,7 +203,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                             </div>  <!-- navigation panel for newer posts -->
                             <!-- navigation panel for older posts -->
                             <div id="galerie-next">
-                                <a href="<?php echo esc_url( get_term_link( $main_term->name, 'galerie_kategorie' ) . '&paged=2#' . $main_term->slug ); ?>">ältere Bilder</a>
+                                <a href="<?php echo esc_url( get_term_link( $main_term->term_id, 'galerie_kategorie' ) . '&paged=2#' . $main_term->slug ); ?>">ältere Bilder</a>
                             </div> <!-- right navigation panel for older posts -->
                         </nav> <!-- galerie-paging -->
                     </div> <!-- galerie-aside -->
