@@ -44,7 +44,7 @@
                                 // we are not active for the current post, so we display the main page, but only once ?>
                                 <article id="post-<?php $page->ID; ?>" <?php post_class( $page->ID ); ?>>
                                     <header class="entry-header">
-                                            <h1 class="entry-title"><?php $page->post_title; ?></h1>
+                                            <h1 class="entry-title"><?php echo $page->post_title; ?></h1>
                                     </header><!-- .entry-header -->
 
                                     <div class="entry-content">
