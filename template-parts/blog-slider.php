@@ -29,7 +29,7 @@ foreach ( $main_categories as $category ) :
             <header class="section-header">
                 <?php
                 printf( '<h1 class="section-heading"><a href="%1$s">%2$s</a></h1>',
-                    esc_url( get_category_link( $category->term_id ) . '#blog' ),
+                    esc_url( get_category_link( $category->term_id )  ),
                     esc_html( $category->name )
                 );
                 
@@ -41,7 +41,7 @@ foreach ( $main_categories as $category ) :
                 if( ! empty( $categories ) ) {
                     $cat_items='<nav class="section-menu-container"><ul class="section-menu">';
                     foreach ( $categories as $cat ) {
-                        $cat_items .= '<li class="foreground section-menu-item"><a class="blog-link" href="' . esc_url( get_category_link( $cat ) . '#blog' ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $cat->name ) ) . '">' . $cat->name . '</a></li>';
+                        $cat_items .= '<li class="foreground section-menu-item"><a class="blog-link" href="' . esc_url( get_category_link( $cat )  ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $cat->name ) ) . '">' . $cat->name . '</a></li>';
                     }
                     $cat_items .= '</ul></nav>';
                     echo $cat_items;
@@ -159,8 +159,12 @@ foreach ( $main_categories as $category ) :
                             else :
                                 if( $count == 2 ) :
                                     echo '<div id="next-container" class="nav-container slider-item">';
-                                endif; ?>
-                                    <a href="<?php echo esc_url( get_category_link( $main_categories[0]->term_id ) . '&paged=2#blog' ) ?>">
+                                endif;
+                                $cat_link = get_category_link( $main_categories[0]->term_id );
+                                $cat_link = substr_replace( $cat_link, '&paged=2', -5, 0 );
+                                ?>
+                                    
+                                    <a href="<?php echo esc_url( $cat_link ) ?>">
                                     <div class="blog-side blog-next foreground">
                                         <h3><?php echo short_title( the_title( '', '', FALSE ), '...', 30); ?></h3>
                                         <?php echo get_the_post_thumbnail( null, 'thumbnail' ); ?>

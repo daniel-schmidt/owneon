@@ -150,6 +150,25 @@ function add_foreground_class( $classes, $item ) {
 add_filter( 'nav_menu_css_class', 'add_foreground_class', 10, 2 );
 add_filter( 'post_class', 'add_foreground_class', 10, 2 );
 
+// add hashtags to every internal link to the main page
+// first filter seems to apply to all categories, tags and terms
+function owneon_add_hash( $link, $term_object, $slug ) {
+    if( $slug == 'galerie_kategorie' ) {
+        $new_link = $link . '#galerie';
+    } else {
+        $new_link = $link . '#blog';
+    }
+    return $new_link;
+}
+add_filter( 'term_link', 'owneon_add_hash', 10, 3 );
+
+function owneon_filter_post_tag_term_links( $link ) {
+    return $link . '#blog';
+}
+add_filter( 'month_link', 'owneon_filter_post_tag_term_links' );
+add_filter( 'year_link', 'owneon_filter_post_tag_term_links' );
+add_filter( 'author_link', 'owneon_filter_post_tag_term_links' );
+
 // function to set the query for taxonomy archives paged with n elements
 // from https://codex.wordpress.org/Pagination
 function tax_paged_query( $query ) {

@@ -12,7 +12,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
             $curr_term = '';
                     
                     // main gallery button
-                    echo '<h1 class="section-heading"><a class="gallery-link" href="' . esc_url( get_category_link( $main_term ) . '#' . $main_term->slug ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $main_term->name ) ) . '">'
+                    echo '<h1 class="section-heading"><a class="gallery-link" href="' . esc_url( get_category_link( $main_term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $main_term->name ) ) . '">'
                     . $main_term->name . '</a></h1>';
                     $terms = get_terms( 'galerie_kategorie', array(
                         'orderby' => 'name',
@@ -45,7 +45,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                         if( $curr_term == $term || $parent==$term ) {
                             $term_items .= ' gallery-curr-item';
                         }
-                        $term_items .= '" href="' . esc_url( get_category_link( $term ) . '#' . $main_term->slug ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
+                        $term_items .= '" href="' . esc_url( get_category_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
                     }
                     $term_items .= '</ul></nav>';
                     echo $term_items;
@@ -107,7 +107,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                                 if( $curr_term == $term ) {
                                     $term_items .= ' class="gallery-curr-subitem"';
                                 }
-                                $term_items .= '" href="' . esc_url( get_category_link( $term ) . '#' . $main_term->slug ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
+                                $term_items .= '" href="' . esc_url( get_category_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
                             }
                             $term_items .= '</ul>';
                             echo $term_items; ?>
@@ -203,7 +203,10 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                             </div>  <!-- navigation panel for newer posts -->
                             <!-- navigation panel for older posts -->
                             <div id="galerie-next">
-                                <a href="<?php echo esc_url( get_term_link( $main_term->term_id, 'galerie_kategorie' ) . '&paged=2#' . $main_term->slug ); ?>">ältere Bilder</a>
+                                <?php
+                                    $cat_link = get_term_link( $main_term->term_id, 'galerie_kategorie' );
+                                    $cat_link = substr_replace( $cat_link, '&paged=2', -8, 0 ); ?>
+                                <a href="<?php echo esc_url( $cat_link ); ?>">ältere Bilder</a>
                             </div> <!-- right navigation panel for older posts -->
                         </nav> <!-- galerie-paging -->
                     </div> <!-- galerie-aside -->
