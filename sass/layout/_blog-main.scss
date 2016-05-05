@@ -29,12 +29,12 @@
 .blog-side:hover,
 .blog-side:focus,
 .blog-side:active {
-    background-color: #fff5cc;
+    background-color: owneon-color( 'fg' );;
 }
 .blog-side:hover h3,
 .blog-side:focus h3,
 .blog-side:active h3 {
-    color: #e60c0c;
+    color: owneon-pure-color( 'accent-strong' );
 }
 #blog-description {
     min-height: 4.5*$basic_size;
