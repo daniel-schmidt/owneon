@@ -134,7 +134,7 @@ function owneon_scripts() {
 //                 wp_enqueue_script( 'owneon-main-menu', get_stylesheet_directory_uri() . '/js/main-menu.js', array( 'jquery' ), '20141801', true );
 	}
 	
-	wp_enqueue_script( 'owneon-ajax', get_stylesheet_directory_uri() . '/js/ajax.js', array( 'jquery' ), '20161104', true );
+// 	wp_enqueue_script( 'owneon-ajax', get_stylesheet_directory_uri() . '/js/ajax.js', array( 'jquery' ), '20161104', true );
 }
 add_action( 'wp_enqueue_scripts', 'owneon_scripts' );
 

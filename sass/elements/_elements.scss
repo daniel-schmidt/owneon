@@ -13,6 +13,10 @@ body {
         line-height: $font__line-height-body;
 }
 
+p {
+    text-align: justify;
+}
+
 blockquote, q {
 	quotes: "" "";
 
