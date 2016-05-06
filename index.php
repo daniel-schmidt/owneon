@@ -39,13 +39,21 @@
                     'include' => $frontpage_id ) );
             if( $fps ) :
                 foreach( $fps as $fp ) : ?>
-                    <header class="section-header">
-                        <h1 class="section-heading">
-                            <?php echo $fp->post_title; ?>
-                        </h1>
-                    </header>
                     <div class="entry-content content-centered fixed-width">
-                        <?php echo $fp->post_content; ?>
+                        <article class="page foreground">
+                            <header class="entry-header">
+                                <h1 class="entry-title">
+                                    <?php echo $fp->post_title; ?>
+                                </h1>
+                            </header>
+                            <div class="entry-content">
+                                <?php 
+                                $content = $fp->post_content;
+                                $content = apply_filters('the_content', $content);
+                                $content = preg_replace('/<p class=\"attachment\">.*?\/p>/','',$content);
+                                echo $content; ?>
+                            </div>
+                        </article>
                     </div>
                 <?php endforeach;
             endif;
