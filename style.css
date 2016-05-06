@@ -77,7 +77,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, .notes, h4, h5, h6, p, blockquote, pre,
+h1,
+.entry-title, h2, h3, .notes, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, font, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -140,7 +141,7 @@ strong {
 dfn {
   font-style: italic; }
 
-h1 {
+h1, .entry-title {
   font-size: 2em;
   margin: 0.67em 0; }
 
@@ -272,13 +273,13 @@ textarea {
   font-size: 1.2rem;
   line-height: 1.3; }
 
-h1, h2, h3, .notes, h4, h5, h6 {
+h1, .entry-title, h2, h3, .notes, h4, h5, h6 {
   clear: both;
   color: #ffdb6b;
   font-family: ColaborateThin;
   margin: 0 0 1.25rem 0; }
 
-h1 {
+h1, .entry-title {
   font-size: 38.4px;
   font-size: 2.4rem; }
 
@@ -414,8 +415,9 @@ big {
   text-align: left; }
 
 .blog-main img {
-  height: 18.75rem;
-  max-width: 31.25rem; }
+  height: auto;
+  width: 100%;
+  margin: 0 0 1.25rem 0; }
 
 .blog-side img {
   width: 13.125rem;
@@ -464,9 +466,9 @@ big {
 /* fix issues with additional space after header due to line-height */
 .section-header {
   line-height: 0; }
-  .section-header h1, .section-header nav {
+  .section-header h1, .section-header .entry-title, .section-header nav {
     line-height: 1.3; }
-  .section-header h1 {
+  .section-header h1, .section-header .entry-title {
     margin: 0; }
 
 #gallery-container {
@@ -988,6 +990,15 @@ article, .comments-area, .site-footer {
 
 .entry-header {
   margin-bottom: 0.625rem; }
+
+.entry-title {
+  text-align: left; }
+  .entry-title a {
+    color: #ffdb6b; }
+  .entry-title a:hover,
+  .entry-title a:focus,
+  .entry-title a:active {
+    color: #d6174a; }
 
 .simple-footnotes {
   margin-bottom: 1.25rem; }

@@ -10,8 +10,9 @@
 }
 
 .blog-main img {
-    height: 30*$basic_size;
-    max-width: 50*$basic_size;
+    height: auto;
+    width: 100%;
+    margin: 0 0 $basic_margin 0;
 }
 
 .blog-side img {
@@ -37,8 +38,8 @@
     color: owneon-pure-color( 'accent-strong' );
 }
 #blog-description {
-    min-height: 4.5*$basic_size;
-    line-height: 4.5*$basic_size;
+    min-height: $strip_height;
+    line-height: $strip_height;
 }
 #blog-description h2 {
     display: inline-block;

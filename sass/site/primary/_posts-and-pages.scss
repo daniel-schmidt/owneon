@@ -40,6 +40,21 @@ article, .comments-area, .site-footer {
     margin-bottom: $basic_size;
 }
 
+.entry-title {
+    text-align: left;
+        @extend h1;
+
+    a {
+        color: owneon-color( 'primary' );
+    }
+    
+    a:hover,
+    a:focus,
+    a:active {
+        color: owneon-color( 'accent-strong' );
+    }
+}
+
 .simple-footnotes {
     margin-bottom: 2*$basic_size;
 }
