@@ -339,6 +339,8 @@ big {
   float: left;
   margin: 0 -16.25rem 0 0;
   width: 60rem; }
+.single .site-content {
+  margin-top: 2.8125rem; }
 .single .site-main {
   margin: 0 16.25rem 0 0; }
 .single .site-content .widget-area {
@@ -727,7 +729,7 @@ a {
         left: -999em;
         top: 0; }
       .main-navigation ul ul li, nav ul ul li {
-        background-color: rgba(40, 44, 49, 0.5); }
+        background-color: rgba(40, 44, 49, 0.9); }
         .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul, nav ul ul li:hover > ul, nav ul ul li.focus > ul {
           left: 100%; }
       .main-navigation ul ul a, nav ul ul a {
@@ -798,7 +800,7 @@ a {
   width: 100%;
   height: 2.8125rem;
   line-height: 2.8125rem;
-  background-color: rgba(40, 44, 49, 0.5);
+  background-color: rgba(40, 44, 49, 0.9);
   /*     box-shadow: 0 1rem 1.5rem #111; */
   z-index: 1000; }
   .headline a {
@@ -806,9 +808,42 @@ a {
     padding: 0 0.625rem;
     float: left;
     height: 100%; }
+  .headline .headline-right {
+    width: 20rem;
+    float: right;
+    margin-right: 1.25rem; }
 
 .section nav {
   margin-right: -1.25rem; }
+
+.show-img-button {
+  position: relative;
+  margin: 0 0 0 auto;
+  display: block;
+  width: 2.8125rem;
+  height: 2.8125rem;
+  text-align: left;
+  background-image: url("img/pfeile.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  line-height: 2.8125rem;
+  cursor: pointer;
+  color: #fff6da;
+  /*   padding-left: 1rem; */ }
+
+.show-img-button div {
+  /*display: none; */
+  visibility: hidden;
+  width: auto;
+  right: 2.8125rem;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  padding: 0 0.625rem;
+  margin: 0; }
+
+.show-img-button:hover > div {
+  visibility: visible; }
 
 /*--------------------------------------------------------------
 # Accessibility

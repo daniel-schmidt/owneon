@@ -24,32 +24,6 @@
 <div id="background">
 </div><!--#background -->
 
-<?php if( is_singular('post') && has_post_thumbnail( get_the_ID() ) ) : ?>
-  <div class="show-img-button foreground">
-    <div class="foreground">
-      Hintergrund angucken
-    </div>
-  </div>
-<?php endif; ?>
-
-<?php if( is_single() ) : ?>
-  <nav id="headline">
-    <a class="header-branding headline-item" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-    </a>
-    <?php the_post_navigation(); ?>
-    <div class="headline-item headline-right">
-    <?php if( has_post_thumbnail( get_the_ID() ) ) : ?>
-      <div class="show-img-button">
-	<div>
-	  Hintergrund angucken
-	</div>
-      </div>
-    <?php endif; ?>
-    </div>
-  </nav>
-<?php endif; ?>
-
-
 <div id="page" class="site">
 	<?php do_action( 'before' ); ?>
 
@@ -61,6 +35,20 @@
                     <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'owneon' ); ?></button>
                     <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
             </nav><!-- #site-navigation -->
+            
+            <?php if( is_single() && has_post_thumbnail() ) : 
+                $url = wp_get_attachment_url( get_post_thumbnail_id() );
+//                 $url = get_attachment_link( get_post_thumbnail_id() );
+            ?>
+            
+                <a href="<?php echo $url ?>" class="headline-item headline-right">
+                    <div class="show-img-button">
+                        <div>
+                            Hintergrund angucken
+                        </div>
+                    </div>
+                </a>
+            <?php endif; ?>
         </div> <!--headline-->
 	
 	<div id="content" class="site-content">

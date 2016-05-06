@@ -25,7 +25,7 @@
 			}
 
 			li {
-                                background-color: owneon-color( 'bg' );
+                                background-color: owneon-color( 'bg-verydark' );
 				&:hover > ul,
 				&.focus > ul {
 					left: 100%;
@@ -130,7 +130,7 @@
     width: 100%;
     height: $strip_height;
     line-height: $strip_height;
-    background-color: owneon-color('bg');
+    background-color: owneon-color('bg-verydark');
 /*     box-shadow: 0 1rem 1.5rem #111; */
     z-index: 1000;
     
@@ -140,9 +140,46 @@
         float: left;
         height: 100%;
     }
+    
+    .headline-right {
+        width: 20rem;
+        float: right;
+        margin-right: $basic_margin;
+    }
 }
 
 .section nav {
     margin-right: -$basic_margin;    
+}
+
+.show-img-button{ 
+    position: relative;
+    margin: 0 0 0 auto;
+    display: block;
+    width: $strip_height;
+    height: $strip_height;
+    text-align: left;
+    background-image: url('img/pfeile.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    line-height: $strip_height;
+    cursor: pointer;
+    color: owneon-color( 'fg' );
+/*   padding-left: 1rem; */
+}
+
+.show-img-button div {
+  /*display: none; */
+  visibility: hidden;
+  width: auto;
+  right: $strip_height;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  padding: 0 $basic_size;
+  margin: 0;
+}
+.show-img-button:hover > div {
+  visibility: visible;
 }
     

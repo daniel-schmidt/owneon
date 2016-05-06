@@ -5,6 +5,9 @@
             width: $size__site-main;
     }
 
+    .site-content {
+            margin-top: $strip_height;
+    }
     .site-main {
             margin: 0 $size__site-sidebar 0 0;
     }

@@ -12,6 +12,7 @@ $owneon_pure_colors: (
 $owneon_derived_colors: (
     'bg': transparentize( mix( black, owneon-pure-color('aside') , 75%), 0.5 ),
     'bg-dark': transparentize( mix( black, owneon-pure-color('aside') , 75%), 0.20 ),
+    'bg-verydark': transparentize( mix( black, owneon-pure-color('aside') , 75%), 0.1 ),
     'fg': mix( white, owneon-pure-color('primary'), 75%)
 );
 
