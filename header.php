@@ -52,18 +52,16 @@
 
 <div id="page" class="site">
 	<?php do_action( 'before' ); ?>
-	<?php if( is_single() ) : ?>
-	<header id="masthead" class="site-header foreground" role="banner">
-	  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-		<div class="site-branding">
-			<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</div>
-	  </a>
-	</header><!-- #masthead -->
+
+        <div id="headline" class="headline">
+            <a href="<?php echo home_url();?>">
+                <img src="<?php echo esc_url( get_template_directory_uri () . '/img/banner_head.png' )?>" alt="neonlicht fotografie Logo klein"/>
+            </a>
+            <nav id="site-navigation" class="main-navigation" role="navigation">
+                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'owneon' ); ?></button>
+                    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+            </nav><!-- #site-navigation -->
+        </div> <!--headline-->
+	
 	<div id="content" class="site-content">
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'owneon' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-        <?php endif; ?>
+

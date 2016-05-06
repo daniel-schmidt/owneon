@@ -147,7 +147,7 @@ function add_foreground_class( $classes, $item ) {
   $classes[] = 'foreground';
   return $classes;  
 }
-add_filter( 'nav_menu_css_class', 'add_foreground_class', 10, 2 );
+// add_filter( 'nav_menu_css_class', 'add_foreground_class', 10, 2 );
 add_filter( 'post_class', 'add_foreground_class', 10, 2 );
 
 // add hashtags to every internal link to the main page
@@ -162,12 +162,18 @@ function owneon_add_hash( $link, $term_object, $slug ) {
 }
 add_filter( 'term_link', 'owneon_add_hash', 10, 3 );
 
-function owneon_filter_post_tag_term_links( $link ) {
+function owneon_add_blog_hash( $link ) {
     return $link . '#blog';
 }
-add_filter( 'month_link', 'owneon_filter_post_tag_term_links' );
-add_filter( 'year_link', 'owneon_filter_post_tag_term_links' );
-add_filter( 'author_link', 'owneon_filter_post_tag_term_links' );
+add_filter( 'month_link', 'owneon_add_blog_hash' );
+add_filter( 'year_link', 'owneon_add_blog_hash' );
+add_filter( 'author_link', 'owneon_add_blog_hash' );
+
+function owneon_add_infos_hash( $link ) {
+    return $link . '#infos';
+}
+add_filter( 'page_link', 'owneon_add_infos_hash' );
+
 
 // function to set the query for taxonomy archives paged with n elements
 // from https://codex.wordpress.org/Pagination

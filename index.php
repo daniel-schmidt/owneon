@@ -23,19 +23,6 @@
             </div>
         </header>-->
         
-        <div id="fp-headline" class="headline">
-            <a href="#frontpage">
-                <img src="<?php echo esc_url( get_template_directory_uri () . '/img/banner_head.png' )?>" alt="neonlicht fotografie Logo klein"/>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#galerie" class="active">Galerie</a></li>
-                    <li><a href="#infos">Infos</a></li>
-                </ul>
-            </nav>
-        </div> <!--headline-->
-        
         <div id="frontpage" class="section">            
         <?php 
         if( is_front_page() ) {
