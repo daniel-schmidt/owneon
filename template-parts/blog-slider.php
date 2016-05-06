@@ -77,8 +77,8 @@ foreach ( $main_categories as $category ) :
                                     echo esc_url($ppl_url . '#blog'); ?>
                                     ">
                                     <div class="blog-side blog-prev foreground">
-                                        <h3><?php echo short_title( the_title( '', '', FALSE ), '...', 30 ); ?></h3>
-                                        <?php echo get_the_post_thumbnail( null, 'thumbnail' ); ?>
+                                        <h3><?php echo the_title( '', '', FALSE ); ?></h3>
+                                        <?php echo get_the_post_thumbnail( null, 'small' ); ?>
                                     </div>
                                 </a>
                             <?php endwhile; ?>
@@ -121,8 +121,8 @@ foreach ( $main_categories as $category ) :
                                     echo esc_url($npl_url . '#blog'); ?>
                                     ">
                                     <div class="blog-side blog-next foreground">
-                                        <h3><?php echo short_title( the_title( '', '', FALSE ), '...', 30); ?></h3>
-                                        <?php echo get_the_post_thumbnail( null, 'thumbnail' ); ?>
+                                        <h3><?php echo the_title( '', '', FALSE ); ?></h3>
+                                        <?php echo get_the_post_thumbnail( null, 'small' ); ?>
                                     </div>
                                 </a>
                             <?php endwhile; ?>
@@ -166,8 +166,8 @@ foreach ( $main_categories as $category ) :
                                     
                                     <a href="<?php echo esc_url( $cat_link ) ?>">
                                     <div class="blog-side blog-next foreground">
-                                        <h3><?php echo short_title( the_title( '', '', FALSE ), '...', 30); ?></h3>
-                                        <?php echo get_the_post_thumbnail( null, 'thumbnail' ); ?>
+                                        <h3><?php echo the_title( '', '', FALSE ); ?></h3>
+                                        <?php echo get_the_post_thumbnail( null, 'small' ); ?>
                                     </div>
                                     </a>
                             <?php

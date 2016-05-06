@@ -27,16 +27,3 @@ function owneon_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'owneon_body_classes' );
-
-/**
- * function to shorten strings with php from
- * http://www.doc4design.com/articles/wordpress-5ways-shorten-titles/
- *
- * The string is shortend to at most $length characters and the $replacer is appended
- * short_title('Example Text', '...', 10); 
- */
-function short_title( $string, $replacer = '...', $length) {
-        if(strlen($string) > $length)
-        $string = (preg_match('/^(.*)\W.*$/', substr($string, 0, $length+1), $matches) ? $matches[1] : substr($string, 0, $length)) . $replacer;
-        echo $string;
-}

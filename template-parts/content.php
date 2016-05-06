@@ -19,7 +19,7 @@
 			}
 
                 if( !is_single() ) { ?>
-                    <a href="<?php echo esc_url( get_permalink() ); ?>">
+                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="post-thumb-link">
                         <?php the_post_thumbnail(); ?>
                     </a>
                 <?php 

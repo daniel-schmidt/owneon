@@ -38,6 +38,11 @@ article, .comments-area, .site-footer {
 
 .entry-header {
     margin-bottom: $basic_size;
+    
+    .post-thumb-link {
+        display: block;
+        line-height: 0;
+    }
 }
 
 .entry-title {
