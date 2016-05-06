@@ -8,7 +8,7 @@
         <div id="<?php echo $page->post_name; ?>" class="section">
             <header class="section-header">
                 <h1 class="section-heading">
-                    <a href=" <?php echo get_page_link( $page->ID ) . '#'. $page->post_name; ?> ">
+                    <a href=" <?php echo get_page_link( $page->ID ) ?> ">
                         <?php echo $page->post_title; ?>
                     </a>
                 </h1>
@@ -19,7 +19,7 @@
                     ) );
                 $menu_items='<nav class="section-menu-container"><ul class="section-menu">';
                 foreach( $sub_pages as $sub_page ) {
-                    $menu_items .= '<li class="foreground section-menu-item"><a href="' . get_page_link( $sub_page->ID ) . '#'. $page->post_name . '">';
+                    $menu_items .= '<li class="foreground section-menu-item"><a href="' . get_page_link( $sub_page->ID ) . '">';
                     $menu_items .= $sub_page->post_title;
                     $menu_items .= '</li></a>';
                 }
