@@ -29,7 +29,7 @@
 
         <div id="headline" class="headline">
             <a href="<?php echo home_url();?>">
-                <img src="<?php echo esc_url( get_template_directory_uri () . '/img/banner_head.png' )?>" alt="neonlicht fotografie Logo klein"/>
+                <img src="<?php echo esc_url( get_template_directory_uri () . '/img/Logo-klein.svg' )?>" alt="neonlicht fotografie Logo klein"/>
             </a>
             <nav id="site-navigation" class="main-navigation" role="navigation">
                     <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'owneon' ); ?></button>

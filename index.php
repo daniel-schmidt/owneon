@@ -24,6 +24,9 @@
         </header>-->
         
         <div id="frontpage" class="section">            
+            <div id="main-logo-container" class="fixed-width">
+                <img class="fixed-width main-logo" src="<?php echo esc_url( get_template_directory_uri () . '/img/Logo.svg' )?>" alt="neonlicht fotografie Logo"/>
+            </div>
         <?php 
         if( is_front_page() ) {
             while ( have_posts() ) {

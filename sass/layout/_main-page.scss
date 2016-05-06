@@ -26,3 +26,23 @@
     vertical-align: top;
     float: left;
 }
+
+.main-logo {
+    display: inline;
+    margin: 0;
+    margin-left: -10*$basic_margin;
+}
+
+#frontpage {
+    .foreground {
+        background: transparent;
+    }
+    .fixed-width {
+        max-width: 56*$basic_size;
+    }
+}
+
+#main-logo-container {
+    margin: 4*$basic_margin auto 2*$basic_margin;
+    text-align: left;
+}
