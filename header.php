@@ -28,11 +28,10 @@
 	<?php do_action( 'before' ); ?>
 
         <div id="headline" class="headline">
-            <a href="<?php echo home_url();?>">
+            <a class="headline-logo" href="<?php echo home_url();?>">
                 <img src="<?php echo esc_url( get_template_directory_uri () . '/img/Logo-klein.svg' )?>" alt="neonlicht fotografie Logo klein"/>
             </a>
             <nav id="site-navigation" class="main-navigation" role="navigation">
-                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'owneon' ); ?></button>
                     <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
             </nav><!-- #site-navigation -->
             

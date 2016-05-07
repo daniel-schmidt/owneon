@@ -336,27 +336,65 @@ big {
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
-.single .site-content, .single .content-area {
-  float: left;
-  margin: 0 -16.25rem 0 0;
-  width: 60rem; }
-.single .site-content {
-  margin-top: 2.8125rem; }
-.single .site-main {
-  margin: 0 16.25rem 0 0; }
-.single .site-content .widget-area {
-  float: right;
-  overflow: hidden;
-  width: 16.25rem; }
-.single .site-footer {
-  clear: both;
-  float: left;
-  width: 42.5rem; }
-.single .site {
-  max-width: 60rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
+.single {
+  /*    @media screen and (max-width: $size__site-main) {
+              .widget {
+                  margin-right: 0;
+              }
+              .site-content .widget-area {
+                  width: $size__site-sidebar - $basic_margin;
+              } 
+              .site-main {
+                  margin-right: 0 $size__site-sidebar - $basic_margin 0 0;
+              }    
+              .site-content, .content-area {
+              
+                  margin: 0 (-$size__site-sidebar + $basic_margin) 0 0;
+                  width: 100%;
+                  max-width: $size__site-main + $basic_margin;
+              }
+      }*/ }
+  .single .site-content, .single .content-area {
+    float: left;
+    margin: 0 -16.25rem 0 0;
+    width: 100%;
+    max-width: 60rem; }
+  .single .site-content {
+    margin-top: 2.8125rem; }
+  .single .site-main {
+    margin: 0 16.25rem 0 0; }
+  .single .site-content .widget-area {
+    float: right;
+    overflow: hidden;
+    width: 16.25rem; }
+  .single .site-footer {
+    clear: both;
+    float: left;
+    max-width: 42.5rem;
+    margin-right: 17.5rem; }
+  .single .site {
+    max-width: 60rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .single .widget {
+    margin-right: 0; }
+  @media screen and (max-width: 800px) {
+    .single {
+      /*             .site-content .widget-area, .site-footer { */
+      /*                  */
+      /*                 width: 100%; */
+      /*             } */ }
+      .single .foreground {
+        margin-right: 0; }
+      .single .site-content .widget-area, .single .site-footer, .single .site-main {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 42.5rem;
+        float: none; }
+      .single .site-content {
+        margin-bottom: 1.25rem; } }
 
 #background {
   background-image: url("img/background.jpg");
@@ -817,7 +855,6 @@ a {
     float: left;
     height: 100%; }
   .headline .headline-right {
-    width: 20rem;
     float: right;
     margin-right: 1.25rem; }
 
@@ -836,23 +873,32 @@ a {
   background-position: top right;
   line-height: 2.8125rem;
   cursor: pointer;
-  color: #fff6da;
-  /*   padding-left: 1rem; */ }
+  color: #fff6da; }
 
-.show-img-button div {
-  /*display: none; */
-  visibility: hidden;
-  width: auto;
-  right: 2.8125rem;
-  position: absolute;
-  top: 0;
-  white-space: nowrap;
-  padding: 0 0.625rem;
-  margin: 0; }
+@media screen and (min-width: 801px) {
+  .show-img-button div {
+    visibility: hidden;
+    width: auto;
+    right: 2.8125rem;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    padding: 0 0.625rem;
+    margin: 0; }
 
-.show-img-button:hover > div {
-  visibility: visible; }
-
+  .show-img-button:hover > div {
+    visibility: visible; } }
+@media screen and (max-width: 800px) {
+  .show-img-button div {
+    display: none; } }
+@media screen and (max-width: 550px) {
+  .headline .headline-logo {
+    background-image: url("./img/Logo-nf.svg");
+    background-repeat: no-repeat;
+    width: 2.8125rem;
+    margin-left: 0.625rem; }
+    .headline .headline-logo img {
+      display: none; } }
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
