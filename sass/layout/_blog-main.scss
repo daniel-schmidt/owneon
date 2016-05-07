@@ -1,5 +1,21 @@
+.blog-main-container {
+    @media screen and (max-width: 1200px) {
+        max-width: 60*$basic_size;
+        margin: 0 auto;
+    }
+    max-width: 120*$basic_size;
+    overflow: auto;
+/*     margin-left: 25*$basic_size + $basic_margin; */
+/*     margin-right: 25*$basic_size; */
+}
+
 .blog-main {
-    width: 60*$basic_size;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and (min-width: 1200px) {
+        width: 50%;
+    }
     
     img {
         height: auto;
@@ -8,9 +24,14 @@
     }
 }
 
+.nav-container {
+    max-width: 25*$basic_size;
+    width: 15%;
+}
+
 .blog-side {
-    width: 25*$basic_size;
-    min-height: 25*$basic_size;
+    width: 100%;
+/*     min-height: 25*$basic_size; */
     padding: $basic_size 2*$basic_size;
     text-align: left;
 
@@ -24,6 +45,15 @@
     h3 {
         margin: 0;
     }
+}
+
+#prev-container {
+    clear: both;
+    margin-right: $basic_margin;
+    float: left;
+}
+#next-container {
+    float: right;
 }
 
 
@@ -65,9 +95,6 @@
     float: left;
 }
 
-#prev-container {
-    clear: both;
-}
 
 /* fix issues with additional space after header due to line-height */
 .section-header {

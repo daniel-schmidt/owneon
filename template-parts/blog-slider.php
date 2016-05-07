@@ -90,17 +90,6 @@ foreach ( $main_categories as $category ) :
                         ?>
                     </div> <!-- left navigation panel -->
                     
-                    <!-- main panels with the loop -->
-                    <?php
-                    if ( have_posts() ) :
-                        while ( have_posts() ) : the_post(); ?>
-                            <div class="slider-item blog-main">
-                            <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-                            </div>
-                        <?php 
-                        endwhile;
-                    endif;  // the main loop ?>
-                    
                     <!-- right navigation panel for older posts -->
                     <div id='next-container' class="nav-container slider-item">
                         <?
@@ -135,6 +124,21 @@ foreach ( $main_categories as $category ) :
                         wp_reset_postdata(); ?>
                     </div>  <!-- right navigation panel -->
                     
+                    <!-- main panels with the loop -->
+                    <?php
+                    if ( have_posts() ) : ?>
+                        <div class="blog-main-container">
+                            <?php 
+                            while ( have_posts() ) : the_post(); ?>
+                                <div class="slider-item blog-main">
+                                <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+                                </div>
+                            <?php 
+                            endwhile; ?>
+                        </div>
+                    <?php
+                    endif;  // the main loop ?>
+                    
                 <?php    
                 else :
                     // we are not displaying an archive query ?>
@@ -149,7 +153,9 @@ foreach ( $main_categories as $category ) :
 	
                     $latest_blog_posts = new WP_Query( $args );
                     if ( $latest_blog_posts->have_posts() ) :
-                        $count = 0;
+                        $count = 0; ?>
+                        <div class="blog-main-container">
+                        <?php
                         while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post();
                             if( $count < 2 ): ?>
                                 <div class="slider-item blog-main">

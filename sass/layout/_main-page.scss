@@ -6,11 +6,15 @@
 
 .content-centered {
     display: inline-block;
-    margin-right: -1*$basic_margin;    /* correct for right margin of foreground elements */
+    @media screen and (min-width: 800px) {
+        margin-right: -1*$basic_margin;    /* correct for right margin of foreground elements */
+    }
 }
 
 #blog .content-centered {
-    margin-right: 0;    
+    margin-right: 0;
+    width: 100%;
+    max-width: 170*$basic_size;
 }
 
 .full-width {

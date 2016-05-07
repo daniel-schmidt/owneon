@@ -424,12 +424,16 @@ big {
   text-align: center; }
 
 .content-centered {
-  display: inline-block;
-  margin-right: -1.25rem;
-  /* correct for right margin of foreground elements */ }
+  display: inline-block; }
+  @media screen and (min-width: 800px) {
+    .content-centered {
+      margin-right: -1.25rem;
+      /* correct for right margin of foreground elements */ } }
 
 #blog .content-centered {
-  margin-right: 0; }
+  margin-right: 0;
+  width: 100%;
+  max-width: 106.25rem; }
 
 .full-width {
   width: 100%;
@@ -452,16 +456,35 @@ big {
   margin: 5rem auto 2.5rem;
   float: left; }
 
+.blog-main-container {
+  max-width: 75rem;
+  overflow: auto;
+  /*     margin-left: 25*$basic_size + $basic_margin; */
+  /*     margin-right: 25*$basic_size; */ }
+  @media screen and (max-width: 1200px) {
+    .blog-main-container {
+      max-width: 37.5rem;
+      margin: 0 auto; } }
+
 .blog-main {
-  width: 37.5rem; }
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (min-width: 1200px) {
+    .blog-main {
+      width: 50%; } }
   .blog-main img {
     height: auto;
     width: 100%;
     margin: 0 0 1.25rem 0; }
 
+.nav-container {
+  max-width: 15.625rem;
+  width: 15%; }
+
 .blog-side {
-  width: 15.625rem;
-  min-height: 15.625rem;
+  width: 100%;
+  /*     min-height: 25*$basic_size; */
   padding: 0.625rem 1.25rem;
   text-align: left; }
   .blog-side img {
@@ -471,6 +494,14 @@ big {
     max-height: 8.75rem; }
   .blog-side h3, .blog-side .notes {
     margin: 0; }
+
+#prev-container {
+  clear: both;
+  margin-right: 1.25rem;
+  float: left; }
+
+#next-container {
+  float: right; }
 
 .blog-next {
   margin-right: 0; }
@@ -503,9 +534,6 @@ big {
 .taxonomy-description {
   display: inline-block;
   float: left; }
-
-#prev-container {
-  clear: both; }
 
 /* fix issues with additional space after header due to line-height */
 .section-header {
