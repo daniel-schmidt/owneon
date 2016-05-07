@@ -405,19 +405,14 @@ big {
   vertical-align: top;
   float: left; }
 
-.main-logo {
-  display: inline;
-  margin: 0;
-  margin-left: -12.5rem; }
-
 #frontpage .foreground {
   background: transparent; }
-#frontpage .fixed-width {
+#frontpage .entry-content {
   max-width: 35rem; }
 
 #main-logo-container {
   margin: 5rem auto 2.5rem;
-  text-align: left; }
+  float: left; }
 
 .blog-main {
   width: 37.5rem; }

@@ -23,45 +23,47 @@
             </div>
         </header>-->
         
-        <div id="frontpage" class="section">            
-            <div id="main-logo-container" class="fixed-width">
-                <img class="fixed-width main-logo" src="<?php echo esc_url( get_template_directory_uri () . '/img/Logo.svg' )?>" alt="neonlicht fotografie Logo"/>
-            </div>
-        <?php 
-        if( is_front_page() ) {
-            while ( have_posts() ) {
-                the_post(); ?>
-                <div class="entry-content content-centered fixed-width">
-                    <?php get_template_part( 'template-parts/content', 'page' ); ?>
+        <div id="frontpage" class="section">     
+            <div id="frontpage-container" class="content-area content-centered fixed-width">
+                <div id="main-logo-container" class="fixed-width">
+                    <img class="fixed-width main-logo" src="<?php echo esc_url( get_template_directory_uri () . '/img/Logo.svg' )?>" alt="neonlicht fotografie Logo"/>
                 </div>
-            <?php
-            } // end of the loop.
-        } else {
-            $frontpage_id = get_option( 'page_on_front' ); 
-            $fps = get_pages( array( 
-                    'include' => $frontpage_id ) );
-            if( $fps ) :
-                foreach( $fps as $fp ) : ?>
+            <?php 
+            if( is_front_page() ) {
+                while ( have_posts() ) {
+                    the_post(); ?>
                     <div class="entry-content content-centered fixed-width">
-                        <article class="page foreground">
-                            <header class="entry-header">
-                                <h1 class="entry-title">
-                                    <?php echo $fp->post_title; ?>
-                                </h1>
-                            </header>
-                            <div class="entry-content">
-                                <?php 
-                                $content = $fp->post_content;
-                                $content = apply_filters('the_content', $content);
-                                $content = preg_replace('/<p class=\"attachment\">.*?\/p>/','',$content);
-                                echo $content; ?>
-                            </div>
-                        </article>
+                        <?php get_template_part( 'template-parts/content', 'page' ); ?>
                     </div>
-                <?php endforeach;
-            endif;
-        } ?>
-        </div>
+                <?php
+                } // end of the loop.
+            } else {
+                $frontpage_id = get_option( 'page_on_front' ); 
+                $fps = get_pages( array( 
+                        'include' => $frontpage_id ) );
+                if( $fps ) :
+                    foreach( $fps as $fp ) : ?>
+                        <div class="entry-content content-centered fixed-width">
+                            <article class="page foreground">
+                                <header class="entry-header">
+                                    <h1 class="entry-title">
+                                        <?php echo $fp->post_title; ?>
+                                    </h1>
+                                </header>
+                                <div class="entry-content">
+                                    <?php 
+                                    $content = $fp->post_content;
+                                    $content = apply_filters('the_content', $content);
+                                    $content = preg_replace('/<p class=\"attachment\">.*?\/p>/','',$content);
+                                    echo $content; ?>
+                                </div>
+                            </article>
+                        </div>
+                    <?php endforeach;
+                endif;
+            } ?>
+            </div> <!--frontpage-container-->
+        </div>  <!--frontpage-->
         <?php
             get_template_part('template-parts/blog-slider');
             get_template_part('template-parts/gallery');
