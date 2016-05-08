@@ -142,7 +142,7 @@ foreach ( $main_categories as $category ) :
                 <?php    
                 else :
                     // we are not displaying an archive query ?>
-                    <div id='prev-container' class="slider-item">
+                    <div id='prev-container' class="nav-container slider-item">
                         <div class="blog-side blog-prev invisible"></div>
                     </div>
                     <?php 
@@ -153,17 +153,20 @@ foreach ( $main_categories as $category ) :
 	
                     $latest_blog_posts = new WP_Query( $args );
                     if ( $latest_blog_posts->have_posts() ) :
-                        $count = 0; ?>
-                        <div class="blog-main-container">
+                        $count = 0;
+                        
+                        // rotate posts, in order to output preview posts first, such that they can float to the right past main container
+                        $loaded_posts = $latest_blog_posts->posts;
+                        array_push($loaded_posts, array_shift($loaded_posts));
+                        array_push($loaded_posts, array_shift($loaded_posts));
+                        $latest_blog_posts->posts = $loaded_posts;
+
+                        ?>
+<!--                        <div class="blog-main-container">-->
                         <?php
                         while ( $latest_blog_posts->have_posts() ) : $latest_blog_posts->the_post();
-                            if( $count < 2 ): ?>
-                                <div class="slider-item blog-main">
-                                    <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-                                </div>
-                            <?php
-                            else :
-                                if( $count == 2 ) :
+                            if( $count < 2 ):
+                                if( $count == 0 ) :
                                     echo '<div id="next-container" class="nav-container slider-item">';
                                 endif;
                                 $cat_link = get_category_link( $main_categories[0]->term_id );
@@ -177,10 +180,19 @@ foreach ( $main_categories as $category ) :
                                     </div>
                                     </a>
                             <?php
+                            else :
+                                if( $count == 2 ) : ?>
+                                    </div><div class="blog-main-container">
+                                <?php
+                                endif; ?>
+                                <div class="slider-item blog-main">
+                                <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+                                </div>
+                            <?php
                             endif;
                             $count++;
                         endwhile; ?>
-                        </div>
+                       </div>
                     <?php endif;
                     wp_reset_postdata();
                     
