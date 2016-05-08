@@ -60,3 +60,9 @@
 .gallery-curr-item:visited, .gallery-curr-subitem:visited {
     color: owneon-color( 'accent-strong' );
 }
+
+@media screen and (max-width: 1300px) {
+    #image-container, #galerie-aside {
+        width: 100%;
+    }
+}

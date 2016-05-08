@@ -6,9 +6,7 @@
 
 .content-centered {
     display: inline-block;
-    @media screen and (min-width: 800px) {
-        margin-right: -1*$basic_margin;    /* correct for right margin of foreground elements */
-    }
+    margin-right: -1*$basic_margin;    /* correct for right margin of foreground elements */
 }
 
 #blog .content-centered {
@@ -20,6 +18,8 @@
 .full-width {
     width: 100%;
     line-height: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .fixed-width {
@@ -34,14 +34,26 @@
 #frontpage {
     .foreground {
         background: transparent;
+        margin-right: 0;
     }
     
     .entry-content {
         max-width: 56*$basic_size;
+    }
+    .content-centered {
+        margin-right: 0;
     }
 }
 
 #main-logo-container {
     margin: 4*$basic_margin auto 2*$basic_margin;
     float: left;
+}
+
+.main-logo {
+    max-width: 100%;
+}
+
+.site-footer {
+    margin-right: 0;
 }

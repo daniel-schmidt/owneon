@@ -424,11 +424,9 @@ big {
   text-align: center; }
 
 .content-centered {
-  display: inline-block; }
-  @media screen and (min-width: 800px) {
-    .content-centered {
-      margin-right: -1.25rem;
-      /* correct for right margin of foreground elements */ } }
+  display: inline-block;
+  margin-right: -1.25rem;
+  /* correct for right margin of foreground elements */ }
 
 #blog .content-centered {
   margin-right: 0;
@@ -437,7 +435,9 @@ big {
 
 .full-width {
   width: 100%;
-  line-height: 0; }
+  line-height: 0;
+  margin-left: 0;
+  margin-right: 0; }
 
 .fixed-width {
   max-width: 56.25rem; }
@@ -448,13 +448,22 @@ big {
   float: left; }
 
 #frontpage .foreground {
-  background: transparent; }
+  background: transparent;
+  margin-right: 0; }
 #frontpage .entry-content {
   max-width: 35rem; }
+#frontpage .content-centered {
+  margin-right: 0; }
 
 #main-logo-container {
   margin: 5rem auto 2.5rem;
   float: left; }
+
+.main-logo {
+  max-width: 100%; }
+
+.site-footer {
+  margin-right: 0; }
 
 .blog-main-container {
   max-width: 75rem;
@@ -495,7 +504,10 @@ big {
     width: 45%; }
 
   .blog-main-container {
-    display: table-header-group; } }
+    display: table-header-group; }
+
+  #blog-description {
+    margin-right: 0; } }
 .blog-side {
   width: 100%;
   /*     min-height: 25*$basic_size; */
@@ -608,6 +620,9 @@ big {
 .gallery-curr-item:visited, .gallery-curr-subitem:visited {
   color: #d6174a; }
 
+@media screen and (max-width: 1300px) {
+  #image-container, #galerie-aside {
+    width: 100%; } }
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -1210,5 +1225,17 @@ object {
 
 .gallery-caption {
   display: block; }
+
+/*--------------------------------------------------------------
+# Responsive design for small screens
+--------------------------------------------------------------*/
+@media screen and (max-width: 800px) {
+  .section nav, .content-centered, article.foreground {
+    margin-right: 0; }
+
+  #infos.fixedwidth {
+    width: 100%; }
+    #infos.fixedwidth article.foreground {
+      margin-right: 0; } }
 
 /*# sourceMappingURL=style.css.map */
