@@ -29,6 +29,7 @@
     .site {
         max-width: $size__site-main;
         @include center-block();
+        overflow: auto;
     }
     
     .widget {

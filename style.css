@@ -376,7 +376,8 @@ big {
     max-width: 60rem;
     display: block;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    overflow: auto; }
   .single .widget {
     margin-right: 0; }
   @media screen and (max-width: 800px) {
@@ -927,12 +928,20 @@ a {
   width: 2.8125rem;
   height: 2.8125rem;
   text-align: left;
+  line-height: 2.8125rem;
+  color: #fff6da; }
+
+.button-up {
   background-image: url("img/pfeile.png");
   background-repeat: no-repeat;
   background-position: top right;
-  line-height: 2.8125rem;
-  cursor: pointer;
-  color: #fff6da; }
+  cursor: pointer; }
+
+.button-down {
+  background-image: url("img/pfeile.png");
+  background-repeat: no-repeat;
+  background-position: right -2.8125rem;
+  cursor: pointer; }
 
 @media screen and (min-width: 801px) {
   .show-img-button div {

@@ -158,13 +158,23 @@
     width: $strip_height;
     height: $strip_height;
     text-align: left;
-    background-image: url('img/pfeile.png');
-    background-repeat: no-repeat;
-    background-position: top right;
     line-height: $strip_height;
-    cursor: pointer;
     color: owneon-color( 'fg' );
 }
+
+.button-up {
+    background-image: url('img/pfeile.png');
+    background-repeat: no-repeat;
+    background-position: top right;    
+    cursor: pointer;
+}
+.button-down {
+    background-image: url('img/pfeile.png');
+    background-repeat: no-repeat;
+    background-position: right $strip_height * -1;
+    cursor: pointer;
+}
+
 
 @media screen and (min-width: 801px) {
     .show-img-button div {

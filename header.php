@@ -41,7 +41,7 @@
             ?>
             
                 <a href="<?php echo $url ?>" class="headline-item headline-right">
-                    <div class="show-img-button">
+                    <div class="show-img-button button-up">
                         <div>
                             Hintergrund angucken
                         </div>
