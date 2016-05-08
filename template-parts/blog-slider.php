@@ -56,6 +56,7 @@ foreach ( $main_categories as $category ) :
                 </div><!-- blog-description -->
                 <?php
                 if( is_archive() && !is_tax() ) : ?>
+                    <div class="blog-slider-content">
                     <!-- left navigation panel for newer posts -->
                     <div id='prev-container' class="nav-container slider-item">
                         <?php 
@@ -138,7 +139,7 @@ foreach ( $main_categories as $category ) :
                         </div>
                     <?php
                     endif;  // the main loop ?>
-                    
+                    </div> <!--blog-slider-content-->
                 <?php    
                 else :
                     // we are not displaying an archive query ?>

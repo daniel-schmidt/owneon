@@ -29,6 +29,25 @@
     width: 15%;
 }
 
+@media screen and (max-width: 800px) {
+    .blog-slider-content {
+        display: table;
+        max-width: 60*$basic_size;
+        margin: 0 auto;
+        article.foreground {
+            margin-right: 0;
+        }
+    }
+    
+    .nav-container {
+        display: table-footer-group;
+        width: 45%;
+    }
+    .blog-main-container {
+        display: table-header-group;
+    }
+}
+
 .blog-side {
     width: 100%;
 /*     min-height: 25*$basic_size; */
@@ -81,7 +100,7 @@
     h2 {
         display: inline-block;
         float: left;
-        padding: 0 2rem;
+        padding: 0 $basic_margin;
         margin-bottom: 0;
     }
     
@@ -91,8 +110,12 @@
 }
 
 .taxonomy-description {
-    display: inline-block;
-    float: left;
+    display: inline;
+    
+    p {
+        text-align: left;
+        padding: 0 $basic_margin;
+    }
 }
 
 

@@ -482,6 +482,20 @@ big {
   max-width: 15.625rem;
   width: 15%; }
 
+@media screen and (max-width: 800px) {
+  .blog-slider-content {
+    display: table;
+    max-width: 37.5rem;
+    margin: 0 auto; }
+    .blog-slider-content article.foreground {
+      margin-right: 0; }
+
+  .nav-container {
+    display: table-footer-group;
+    width: 45%; }
+
+  .blog-main-container {
+    display: table-header-group; } }
 .blog-side {
   width: 100%;
   /*     min-height: 25*$basic_size; */
@@ -526,14 +540,16 @@ big {
   #blog-description h2 {
     display: inline-block;
     float: left;
-    padding: 0 2rem;
+    padding: 0 1.25rem;
     margin-bottom: 0; }
   #blog-description p {
     margin: 0; }
 
 .taxonomy-description {
-  display: inline-block;
-  float: left; }
+  display: inline; }
+  .taxonomy-description p {
+    text-align: left;
+    padding: 0 1.25rem; }
 
 /* fix issues with additional space after header due to line-height */
 .section-header {
