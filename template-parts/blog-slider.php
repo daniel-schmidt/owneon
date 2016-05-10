@@ -48,7 +48,7 @@ foreach ( $main_categories as $category ) :
                 }?>
             </header>
             <div class="content-area content-centered">
-                <div id="blog-content-container">
+                <div class="content-container">
                     <div id="blog-description" class="foreground full-width">
                         <?php 
                         // include with keeping variables available

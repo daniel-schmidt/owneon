@@ -125,6 +125,7 @@ function owneon_scripts() {
 	}
 	
 	// custom scripts
+	
         if ( is_singular('post') && has_post_thumbnail( get_the_ID() ) )
 	{
                 wp_enqueue_script( 'owneon-hide-foreground', get_stylesheet_directory_uri() . '/js/hide-foreground.js', array( 'jquery' ), '20150508', true );
@@ -135,6 +136,8 @@ function owneon_scripts() {
 // 	}
 	
 	if ( !is_singular( 'post' ) ) {
+            wp_enqueue_script( 'owneon-scrollTo', get_template_directory_uri() . '/js/jquery.scrollTo.min.js', array('jquery'), '20160511', true );
+	
             wp_enqueue_script( 'owneon-ajax', get_stylesheet_directory_uri() . '/js/ajax.js', array( 'jquery' ), '20160511', true );
         }
 }

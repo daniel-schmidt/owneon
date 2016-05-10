@@ -572,7 +572,7 @@ big {
   .section-header h1, .section-header .entry-title {
     margin: 0; }
 
-#gallery-container {
+#galerie .content-container {
   display: inline-block;
   width: 100%;
   padding: 1.25rem;

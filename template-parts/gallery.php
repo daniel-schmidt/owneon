@@ -54,7 +54,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
         </header>
         
         <div class="content-area foreground full-width">
-            <div id="gallery-container">
+            <div class="content-container">
 
                 <?php 
                 // if we are a Taxonomy, we display every item from the main loop
