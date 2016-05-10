@@ -124,7 +124,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                                 $ppl_link = get_previous_posts_link();
                                 if( isset( $ppl_link ) ) :
                                 ?>
-                                    <a href="<?php $ppl=explode('"', $ppl_link ); 
+                                    <a class="gallery-link" href="<?php $ppl=explode('"', $ppl_link ); 
                                         $ppl_url=$ppl[1];
                                         echo esc_url($ppl_url . '#' . $main_term->slug); ?>
                                         ">
@@ -141,7 +141,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                                 $npl_link = get_next_posts_link();
                                 if( isset( $npl_link ) ) :
                                 ?>
-                                    <a href="<?php $npl=explode('"', $npl_link ); 
+                                    <a class="gallery-link" href="<?php $npl=explode('"', $npl_link ); 
                                         $npl_url=$npl[1];
                                         echo esc_url($npl_url . '#' . $main_term->slug); ?>
                                         ">
@@ -206,7 +206,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                                 <?php
                                     $cat_link = get_term_link( $main_term->term_id, 'galerie_kategorie' );
                                     $cat_link = substr_replace( $cat_link, '&paged=2', -8, 0 ); ?>
-                                <a href="<?php echo esc_url( $cat_link ); ?>">ältere Bilder</a>
+                                <a class="gallery-link" href="<?php echo esc_url( $cat_link ); ?>">ältere Bilder</a>
                             </div> <!-- right navigation panel for older posts -->
                         </nav> <!-- galerie-paging -->
                     </div> <!-- galerie-aside -->
