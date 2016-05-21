@@ -132,8 +132,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                                         </div>
                                     </a>
                                 <?php else : ?>
-                                    <div class="button-hidden">
-                                    </div>
+                                    <div class="button-hidden"></div>
                                 <?php endif; ?>
                             </div>  <!-- navigation panel for newer posts -->
                             <!-- navigation panel for older posts -->
@@ -147,11 +146,10 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                                         $npl_url=$npl[1];
                                         echo esc_url($npl_url . '#' . $main_term->slug); ?>
                                         ">
-                                        <div class="button-right">
-                                        </div>
+                                        <div class="button-right"></div>
                                     </a>
                                 <?php else : ?>
-                                    <!-- do something if there is no previous post? -->
+                                    <div class="button-hidden"></div>
                                 <?php endif; ?>
                             </div> <!-- right navigation panel for older posts -->
                         </nav> <!-- galerie-paging -->
@@ -203,13 +201,16 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                         
                         <nav id="galerie-paging" class="submenu">
                             <div id="galerie-prev">
+                                <div class="button-hidden"></div>
                             </div>  <!-- navigation panel for newer posts -->
                             <!-- navigation panel for older posts -->
                             <div id="galerie-next">
                                 <?php
                                     $cat_link = get_term_link( $main_term->term_id, 'galerie_kategorie' );
                                     $cat_link = substr_replace( $cat_link, '&paged=2', -8, 0 ); ?>
-                                <a class="gallery-link" href="<?php echo esc_url( $cat_link ); ?>">ältere Bilder</a>
+                                <a class="gallery-link" href="<?php echo esc_url( $cat_link ); ?>">
+                                    <div class="button-right"></div>
+                                </a>
                             </div> <!-- right navigation panel for older posts -->
                         </nav> <!-- galerie-paging -->
                     </div> <!-- galerie-aside -->
