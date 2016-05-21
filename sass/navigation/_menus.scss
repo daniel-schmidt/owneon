@@ -163,16 +163,24 @@
 }
 
 .button-up {
-    background-image: url('img/pfeile.png');
-    background-repeat: no-repeat;
-    background-position: top right;    
-    cursor: pointer;
+    @include arrow-button();
+    background-position: top left;    
 }
 .button-down {
-    background-image: url('img/pfeile.png');
-    background-repeat: no-repeat;
+    @include arrow-button();
+    background-position: left $strip_height * -1;
+}
+.button-left{
+    @include arrow-button();
+    background-position: top right;
+}
+.button-right {
+    @include arrow-button();
     background-position: right $strip_height * -1;
-    cursor: pointer;
+}
+.button-hidden {
+    @include arrow-button();
+    visibility: hidden;
 }
 
 

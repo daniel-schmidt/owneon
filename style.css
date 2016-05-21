@@ -616,6 +616,9 @@ big {
   #galerie-paging div {
     display: inline-block;
     padding: 0.625rem; }
+  #galerie-paging a {
+    padding: 0;
+    margin: 0; }
 
 .gallery-curr-item, .gallery-curr-subitem,
 .gallery-curr-item:visited, .gallery-curr-subitem:visited {
@@ -934,14 +937,42 @@ a {
 .button-up {
   background-image: url("img/pfeile.png");
   background-repeat: no-repeat;
-  background-position: top right;
-  cursor: pointer; }
+  cursor: pointer;
+  height: 45px;
+  width: 45px;
+  background-position: top left; }
 
 .button-down {
   background-image: url("img/pfeile.png");
   background-repeat: no-repeat;
-  background-position: right -2.8125rem;
-  cursor: pointer; }
+  cursor: pointer;
+  height: 45px;
+  width: 45px;
+  background-position: left -2.8125rem; }
+
+.button-left {
+  background-image: url("img/pfeile.png");
+  background-repeat: no-repeat;
+  cursor: pointer;
+  height: 45px;
+  width: 45px;
+  background-position: top right; }
+
+.button-right {
+  background-image: url("img/pfeile.png");
+  background-repeat: no-repeat;
+  cursor: pointer;
+  height: 45px;
+  width: 45px;
+  background-position: right -2.8125rem; }
+
+.button-hidden {
+  background-image: url("img/pfeile.png");
+  background-repeat: no-repeat;
+  cursor: pointer;
+  height: 45px;
+  width: 45px;
+  visibility: hidden; }
 
 @media screen and (min-width: 801px) {
   .show-img-button div {

@@ -128,10 +128,12 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                                         $ppl_url=$ppl[1];
                                         echo esc_url($ppl_url . '#' . $main_term->slug); ?>
                                         ">
-                                        neuere Bilder
+                                        <div class="button-left">
+                                        </div>
                                     </a>
                                 <?php else : ?>
-                                    <!-- do something if there is no previous post? -->
+                                    <div class="button-hidden">
+                                    </div>
                                 <?php endif; ?>
                             </div>  <!-- navigation panel for newer posts -->
                             <!-- navigation panel for older posts -->
@@ -145,7 +147,8 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                                         $npl_url=$npl[1];
                                         echo esc_url($npl_url . '#' . $main_term->slug); ?>
                                         ">
-                                        ältere Bilder
+                                        <div class="button-right">
+                                        </div>
                                     </a>
                                 <?php else : ?>
                                     <!-- do something if there is no previous post? -->

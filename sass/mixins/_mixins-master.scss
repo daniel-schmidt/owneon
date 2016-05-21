@@ -22,3 +22,11 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+@mixin arrow-button() {
+    background-image: url('img/pfeile.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+}
