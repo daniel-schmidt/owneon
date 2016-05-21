@@ -165,18 +165,32 @@
 .button-up {
     @include arrow-button();
     background-position: top left;    
+    &:hover {
+        background-position: left -90px;
+    }
 }
 .button-down {
     @include arrow-button();
-    background-position: left $strip_height * -1;
+    background-position: left -45px;
+    &:hover {
+        background-position: left -135px;
+    }
 }
 .button-left{
     @include arrow-button();
     background-position: top right;
+    &:hover {
+        background-position: right -90px;
+    }
 }
 .button-right {
     @include arrow-button();
-    background-position: right $strip_height * -1;
+    background-position: right -45px;
+    
+    &:hover {
+        background-position: right -135px;
+    }
+    
 }
 .button-hidden {
     @include arrow-button();

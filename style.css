@@ -941,6 +941,8 @@ a {
   height: 45px;
   width: 45px;
   background-position: top left; }
+  .button-up:hover {
+    background-position: left -90px; }
 
 .button-down {
   background-image: url("img/pfeile.png");
@@ -948,7 +950,9 @@ a {
   cursor: pointer;
   height: 45px;
   width: 45px;
-  background-position: left -2.8125rem; }
+  background-position: left -45px; }
+  .button-down:hover {
+    background-position: left -135px; }
 
 .button-left {
   background-image: url("img/pfeile.png");
@@ -957,6 +961,8 @@ a {
   height: 45px;
   width: 45px;
   background-position: top right; }
+  .button-left:hover {
+    background-position: right -90px; }
 
 .button-right {
   background-image: url("img/pfeile.png");
@@ -964,7 +970,9 @@ a {
   cursor: pointer;
   height: 45px;
   width: 45px;
-  background-position: right -2.8125rem; }
+  background-position: right -45px; }
+  .button-right:hover {
+    background-position: right -135px; }
 
 .button-hidden {
   background-image: url("img/pfeile.png");
