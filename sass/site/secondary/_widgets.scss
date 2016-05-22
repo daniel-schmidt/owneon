@@ -30,6 +30,7 @@
         input[type="text"],
         input[type="search"]{
             width: 100%;
+            height: $input_height;
         }
         input[type="submit"] {
             float: left;
@@ -40,6 +41,6 @@
         }
         
         .search-submit {
-            margin-top: $basic_margin;
+            margin-top: $basic_size;
         }
 }

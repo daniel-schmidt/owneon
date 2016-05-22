@@ -18,6 +18,7 @@ textarea {
         background-color: owneon_color( 'fg-light' );
         border: 0;
         border-left: 0.5*$basic_size solid owneon_color( 'fg-light');
+        vertical-align: bottom;
 	/*border: 2px solid owneon_color( 'aside' );*/
 /*         border: 2px solid; */
 /*         border-color: owneon_color( 'aside' ) owneon_color( 'aside-medium' ) owneon_color( 'aside-dark' ); */
@@ -32,7 +33,10 @@ textarea {
 }
 
 select {
-	border: 1px solid owneon_color( 'aside' );
+	border: 0;
+        color: owneon_color( 'aside-strong' );
+        background-color: owneon_color( 'fg-light' );
+        height: $input_height;
 }
 
 input[type="text"],
@@ -50,10 +54,10 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"] {
-	padding: 3px;
+	padding: 0.1*$input_height;
 }
 
 textarea {
-	padding-left: 3px;
+	padding-left: 0.1*$input_height;
 	width: 100%;
 }

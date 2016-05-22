@@ -28,7 +28,7 @@
 }
 
 article, .comments-area, .site-footer {
-        padding: 2*$basic_size;
+        padding: $basic_margin;
 }
 
 .entry-meta, .simple-footnotes, .site-footer {
@@ -61,7 +61,7 @@ article, .comments-area, .site-footer {
 }
 
 .simple-footnotes {
-    margin-bottom: 2*$basic_size;
+    margin-bottom: $basic_margin;
 }
 
 .notes {
@@ -80,5 +80,15 @@ article, .comments-area, .site-footer {
     
     .no-results .page-content {
         padding: $basic_margin;
+    }
+}
+
+.error-404, .search-no-results {
+    padding: $basic_margin;
+    input {
+        height: $input_height;
+    }
+    .search-submit {
+/*             margin-left: $basic_size; */
     }
 }
