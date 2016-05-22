@@ -19,8 +19,6 @@ $owneon_derived_colors: (
     'aside-medium': mix( black, owneon-pure-color( 'aside' ), 20% ),
     'aside-dark': mix( black, owneon-pure-color( 'aside' ), 30% ),
     'aside-strong': mix( black, saturate( owneon-pure-color('aside'), 100% ), 20%),
-    'aside-strong-medium': mix( black, saturate( owneon-pure-color('aside'), 100% ), 30%),
-    'aside-strong-dark': mix( black, saturate( owneon-pure-color('aside'), 100% ), 40%)
 );
 
 $owneon_colors: map-merge( $owneon_pure_colors, $owneon_derived_colors );

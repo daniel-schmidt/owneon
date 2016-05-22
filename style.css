@@ -336,7 +336,7 @@ big {
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
-.single {
+.single, .search {
   /*    @media screen and (max-width: $size__site-main) {
               .widget {
                   margin-right: 0;
@@ -354,47 +354,47 @@ big {
                   max-width: $size__site-main + $basic_margin;
               }
       }*/ }
-  .single .site-content, .single .content-area {
+  .single .site-content, .single .content-area, .search .site-content, .search .content-area {
     float: left;
     margin: 0 -16.25rem 0 0;
     width: 100%;
     max-width: 60rem; }
-  .single .site-content {
+  .single .site-content, .search .site-content {
     margin-top: 2.8125rem; }
-  .single .site-main {
+  .single .site-main, .search .site-main {
     margin: 0 16.25rem 0 0; }
-  .single .site-content .widget-area {
+  .single .site-content .widget-area, .search .site-content .widget-area {
     float: right;
     overflow: hidden;
     width: 16.25rem; }
-  .single .site-footer {
+  .single .site-footer, .search .site-footer {
     clear: both;
     float: left;
     max-width: 42.5rem;
     margin-right: 17.5rem; }
-  .single .site {
+  .single .site, .search .site {
     max-width: 60rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
     overflow: auto; }
-  .single .widget {
+  .single .widget, .search .widget {
     margin-right: 0; }
   @media screen and (max-width: 800px) {
-    .single {
+    .single, .search {
       /*             .site-content .widget-area, .site-footer { */
       /*                  */
       /*                 width: 100%; */
       /*             } */ }
-      .single .foreground {
+      .single .foreground, .search .foreground {
         margin-right: 0; }
-      .single .site-content .widget-area, .single .site-footer, .single .site-main {
+      .single .site-content .widget-area, .single .site-footer, .single .site-main, .search .site-content .widget-area, .search .site-footer, .search .site-main {
         margin-left: auto;
         margin-right: auto;
         width: 100%;
         max-width: 42.5rem;
         float: none; }
-      .single .site-content {
+      .single .site-content, .search .site-content {
         margin-bottom: 1.25rem; } }
 
 #background {
@@ -699,16 +699,11 @@ input[type="reset"],
 input[type="submit"] {
   border: 0;
   border-left: 0.3125rem solid #fffbf0;
-  /* 	border: 2px solid; */
-  /*         border-color: owneon_color( 'aside' ) owneon_color( 'aside-medium' ) owneon_color( 'aside-dark' ); */
-  /* 	border-radius: 4px; */
   background: #fffbf0;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
   color: #4e84cc;
   font-size: 14.4px;
   font-size: 0.9rem;
-  /* 	line-height: 1; */
-  /* 	padding: .6em 1em .4em; */
   padding: 0.625rem;
   padding-left: 0.3125rem;
   margin-right: 0.625rem;
@@ -717,7 +712,6 @@ input[type="submit"] {
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover {
-    border-color: #4e84cc #4574b3 #3b6399;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
     color: #d6174a;
     background-color: #fff6da;
@@ -731,7 +725,8 @@ input[type="submit"] {
   input[type="submit"]:focus {
     color: #d6174a;
     border-color: #aaa #bbb #bbb;
-    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15); }
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+    border-left: 0.3125rem solid #d6174a; }
 
 input[type="text"],
 input[type="email"],
@@ -1194,6 +1189,13 @@ article, .comments-area, .site-footer {
 
 .notes {
   margin: 0 0 0.625rem; }
+
+.search .page-title {
+  padding: 1.25rem; }
+  .search .page-title span {
+    font-style: italic; }
+.search .no-results .page-content {
+  padding: 1.25rem; }
 
 /*--------------------------------------------------------------
 ## Asides
