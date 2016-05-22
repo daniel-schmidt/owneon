@@ -68,3 +68,17 @@ article, .comments-area, .site-footer {
     @extend h3;
     margin: 0 0 $basic_size;
 }
+
+.search {
+    .page-title {
+        padding: $basic_margin;
+        
+        span {
+            font-style: italic;
+        }
+    }
+    
+    .no-results .page-content {
+        padding: $basic_margin;
+    }
+}

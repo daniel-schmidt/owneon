@@ -24,7 +24,7 @@
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer entry-meta">
 		<?php owneon_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
