@@ -697,23 +697,31 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border: 1px solid;
-  border-color: #ccc #ccc #bbb;
-  border-radius: 3px;
-  background: #e6e6e6;
+  border: 0;
+  border-left: 0.3125rem solid #fffbf0;
+  /* 	border: 2px solid; */
+  /*         border-color: owneon_color( 'aside' ) owneon_color( 'aside-medium' ) owneon_color( 'aside-dark' ); */
+  /* 	border-radius: 4px; */
+  background: #fffbf0;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 12px;
-  font-size: 0.75rem;
-  line-height: 1;
-  padding: .6em 1em .4em;
+  color: #4e84cc;
+  font-size: 14.4px;
+  font-size: 0.9rem;
+  /* 	line-height: 1; */
+  /* 	padding: .6em 1em .4em; */
+  padding: 0.625rem;
+  padding-left: 0.3125rem;
+  margin-right: 0.625rem;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
   button:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover {
-    border-color: #ccc #bbb #aaa;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02); }
+    border-color: #4e84cc #4574b3 #3b6399;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+    color: #d6174a;
+    background-color: #fff6da;
+    border-left: 0.3125rem solid #d6174a; }
   button:active, button:focus,
   input[type="button"]:active,
   input[type="button"]:focus,
@@ -721,6 +729,7 @@ input[type="submit"] {
   input[type="reset"]:focus,
   input[type="submit"]:active,
   input[type="submit"]:focus {
+    color: #d6174a;
     border-color: #aaa #bbb #bbb;
     box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15); }
 
@@ -740,9 +749,15 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-  color: #666;
-  border: 1px solid #ccc;
-  border-radius: 3px; }
+  color: #9faec2;
+  background-color: #fffbf0;
+  border: 0;
+  border-left: 0.3125rem solid #fffbf0;
+  /*border: 2px solid owneon_color( 'aside' );*/
+  /*         border: 2px solid; */
+  /*         border-color: owneon_color( 'aside' ) owneon_color( 'aside-medium' ) owneon_color( 'aside-dark' ); */
+  /* 	border-radius: 4px; */
+  /* 	border-radius: 0; */ }
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="url"]:focus,
@@ -759,10 +774,12 @@ textarea {
   input[type="datetime-local"]:focus,
   input[type="color"]:focus,
   textarea:focus {
-    color: #111; }
+    color: #4e84cc;
+    background-color: #fff6da;
+    border-left: 0.3125rem solid #d6174a; }
 
 select {
-  border: 1px solid #ccc; }
+  border: 1px solid #9faec2; }
 
 input[type="text"],
 input[type="email"],
@@ -1093,6 +1110,7 @@ a {
 --------------------------------------------------------------*/
 .widget {
   padding: 0.625rem;
+  overflow: auto;
   font-size: 14.4px;
   font-size: 0.9rem;
   /* Make sure select elements fit in widgets. */ }
@@ -1109,6 +1127,15 @@ a {
     padding-left: 0; }
     .widget .collapsing.archives .sym {
       margin-right: 3%; }
+  .widget input[type="text"],
+  .widget input[type="search"] {
+    width: 100%; }
+  .widget input[type="submit"] {
+    float: left; }
+  .widget input[name="unsubscribe"] {
+    margin: 0; }
+  .widget .search-submit {
+    margin-top: 1.25rem; }
 
 /*--------------------------------------------------------------
 # Content

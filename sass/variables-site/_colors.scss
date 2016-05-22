@@ -14,7 +14,13 @@ $owneon_derived_colors: (
     'bg': transparentize( mix( black, owneon-pure-color('aside') , 75%), 0.5 ),
     'bg-dark': transparentize( mix( black, owneon-pure-color('aside') , 75%), 0.20 ),
     'bg-verydark': transparentize( mix( black, owneon-pure-color('aside') , 75%), 0.1 ),
-    'fg': mix( white, owneon-pure-color('primary'), 75%)
+    'fg': mix( white, owneon-pure-color('primary'), 75%),
+    'fg-light': mix( white, owneon-pure-color('primary'), 90%),
+    'aside-medium': mix( black, owneon-pure-color( 'aside' ), 20% ),
+    'aside-dark': mix( black, owneon-pure-color( 'aside' ), 30% ),
+    'aside-strong': mix( black, saturate( owneon-pure-color('aside'), 100% ), 20%),
+    'aside-strong-medium': mix( black, saturate( owneon-pure-color('aside'), 100% ), 30%),
+    'aside-strong-dark': mix( black, saturate( owneon-pure-color('aside'), 100% ), 40%)
 );
 
 $owneon_colors: map-merge( $owneon_pure_colors, $owneon_derived_colors );
@@ -31,7 +37,6 @@ $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
 $color__text-screen: #21759b;
-$color__text-input: #666;
 $color__text-input-focus: #111;
 $color__link: royalblue;
 $color__link-visited: purple;

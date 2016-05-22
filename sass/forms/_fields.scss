@@ -14,17 +14,25 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	color: $color__text-input;
-	border: 1px solid $color__border-input;
-	border-radius: 3px;
+	color: owneon_color('aside');
+        background-color: owneon_color( 'fg-light' );
+        border: 0;
+        border-left: 0.5*$basic_size solid owneon_color( 'fg-light');
+	/*border: 2px solid owneon_color( 'aside' );*/
+/*         border: 2px solid; */
+/*         border-color: owneon_color( 'aside' ) owneon_color( 'aside-medium' ) owneon_color( 'aside-dark' ); */
+/* 	border-radius: 4px; */
+/* 	border-radius: 0; */
 
 	&:focus {
-		color: $color__text-input-focus;
+		color: owneon_color( 'aside-strong' );
+                background-color: owneon_color( 'fg' );
+                border-left: 0.5*$basic_size solid owneon_color( 'accent-strong' );
 	}
 }
 
 select {
-	border: 1px solid $color__border-input;
+	border: 1px solid owneon_color( 'aside' );
 }
 
 input[type="text"],

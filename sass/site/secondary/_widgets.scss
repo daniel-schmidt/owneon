@@ -1,5 +1,6 @@
 .widget {
         padding: $basic-size;
+        overflow: auto;
         @include font-size($font-size-small);
         
 	/* Make sure select elements fit in widgets. */
@@ -25,5 +26,20 @@
                 margin-right: 3%;
             }
         }
-            
+        
+        input[type="text"],
+        input[type="search"]{
+            width: 100%;
+        }
+        input[type="submit"] {
+            float: left;
+        }
+        
+        input[name="unsubscribe"] {
+            margin: 0;
+        }
+        
+        .search-submit {
+            margin-top: $basic_margin;
+        }
 }
