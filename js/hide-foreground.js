@@ -27,14 +27,18 @@ jQuery( document ).ready( function($) {
     
     function shrink_to_contain(){
         var x = 1-ypos/overhead;
+        var target_top = 0;
         if( w_ratio > img_ratio ) {
-        target_height = window.innerHeight;
+            target_height = window.innerHeight;
             target_width = target_height * img_ratio;
         } else {
             target_width = window.innerWidth;
             target_height = target_width / img_ratio;
+            target_top = (window.innerHeight - target_height)/2;
         }
-        $('#background').css({ 'background-size': (img_width*(1-x)+ x*target_width) + "px " + (img_height*(1-x)+x*target_height) + "px"
+        $('#background').css({ 
+            'background-size': (img_width*(1-x)+ x*target_width) + "px " + (img_height*(1-x)+x*target_height) + "px",
+            'top': target_top*x + "px"
         });
     }
     

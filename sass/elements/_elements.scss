@@ -1,5 +1,6 @@
 html {
 	box-sizing: border-box;
+        background-color: black;
 }
 
 *,
@@ -9,7 +10,7 @@ html {
 }
 
 body {
-	background: owneon-color('bg'); /* Fallback for when there is no custom background color defined. */
+/* 	background: owneon-color('bg'); /* Fallback for when there is no custom background color defined. */
         line-height: $font__line-height-body;
 }
 
