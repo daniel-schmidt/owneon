@@ -15,7 +15,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                     echo '<h1 class="section-heading"><a class="gallery-link" href="' . esc_url( get_category_link( $main_term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $main_term->name ) ) . '">'
                     . $main_term->name . '</a></h1>';
                     $terms = get_terms( 'galerie_kategorie', array(
-                        'orderby' => 'name',
+                        'orderby' => 'slug',
                         'parent' => $main_term->term_id
                     ) );
                     

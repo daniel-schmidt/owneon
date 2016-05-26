@@ -1,7 +1,7 @@
 <?php   
 
 $main_categories = get_categories( array(
-    'orderby' => 'name',
+    'orderby' => 'slug',
     'parent'  => 0
 ) );
 
@@ -35,7 +35,7 @@ foreach ( $main_categories as $category ) :
                 
                 
                 $categories = get_categories( array(
-                    'orderby' => 'name',
+                    'orderby' => 'slug',
                     'childless' => true
                 ) );
                 if( ! empty( $categories ) ) {
