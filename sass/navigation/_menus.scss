@@ -1,0 +1,236 @@
+.main-navigation, nav {
+/* 	clear: both; */
+	display: inline-block;
+/* 	float: left; */
+/* 	width: 100%; */
+
+	ul {
+/* 		display: none; */
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+/* 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); */
+                        border-left: 0.5*$basic_size solid owneon-color( 'fg' );
+			float: left;
+			position: absolute;
+			top: $strip_height;
+			left: -999em;
+			z-index: 99999;
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+
+			li {
+                                background-color: owneon-color( 'bg-verydark' );
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				width: 200px;
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+	
+	li {
+		float: left;
+		position: relative;
+                font-family: $font__menu;
+                @include font-size(1.4);
+                
+		&:hover > a,
+		&.focus > a {
+                        color: owneon-color( 'accent-strong' );
+		}
+		
+		&:hover {
+                        background-color: owneon-color( 'fg' );
+                }
+	}
+	
+	a {
+		display: block;
+                padding: $basic-size;
+		text-decoration: none;
+	}
+        
+        a:visited {
+                color: owneon-color( 'accent-weak' );
+        }
+        
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+                color: owneon-color( 'accent-strong' );
+	}
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	.nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+}
+
+/* Headline */
+.headline {
+    position: fixed;  
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: 100%;
+    height: $strip_height;
+    line-height: $strip_height;
+    background-color: owneon-color('bg-verydark');
+/*     box-shadow: 0 1rem 1.5rem #111; */
+    z-index: 1000;
+    
+    a {
+        display: inline-block;
+        padding: 0 $basic_size;
+        float: left;
+        height: 100%;
+    }
+    
+    .headline-right {
+        float: right;
+        margin-right: $basic_margin;
+    }
+}
+
+.admin-bar .headline {
+    margin-top: 32px;
+}
+
+.section nav {
+    margin-right: -$basic_margin;    
+}
+
+.show-img-button{ 
+    position: relative;
+    margin: 0 0 0 auto;
+    display: block;
+    width: $strip_height;
+    height: $strip_height;
+    text-align: left;
+    line-height: $strip_height;
+    color: owneon-color( 'fg' );
+}
+
+.button-up {
+    @include arrow-button();
+    background-position: top left;    
+    &:hover {
+        background-position: left -90px;
+    }
+}
+.button-down {
+    @include arrow-button();
+    background-position: left -45px;
+    &:hover {
+        background-position: left -135px;
+    }
+}
+.button-left{
+    @include arrow-button();
+    background-position: top right;
+    &:hover {
+        background-position: right -90px;
+    }
+}
+.button-right {
+    @include arrow-button();
+    background-position: right -45px;
+    
+    &:hover {
+        background-position: right -135px;
+    }
+    
+}
+.button-hidden {
+    @include arrow-button();
+    visibility: hidden;
+}
+
+
+@media screen and (min-width: 801px) {
+    .show-img-button div {
+        visibility: hidden;
+        width: auto;
+        right: $strip_height;
+        position: absolute;
+        top: 0;
+        white-space: nowrap;
+        padding: 0 $basic_size;
+        margin: 0;
+    }
+    .show-img-button:hover > div {
+    visibility: visible;
+    }
+}
+@media screen and (max-width: 800px) {
+        .show-img-button div {
+            display: none;
+        }
+}
+
+@media screen and (max-width: 550px) {
+    .headline .headline-logo {
+        background-image: url("./img/Logo-nf.svg");
+        background-repeat: no-repeat;
+        width: $strip_height;
+        margin-left: $basic_size;
+        img {    
+            display: none;
+        }
+    }
+}

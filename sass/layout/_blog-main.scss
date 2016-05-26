@@ -1,0 +1,135 @@
+.blog-main-container {
+    @media screen and (max-width: 1200px) {
+        max-width: 60*$basic_size;
+        margin: 0 auto;
+    }
+    max-width: 120*$basic_size;
+    overflow: auto;
+/*     margin-left: 25*$basic_size + $basic_margin; */
+/*     margin-right: 25*$basic_size; */
+}
+
+.blog-main {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and (min-width: 1200px) {
+        width: 50%;
+    }
+    
+    img {
+        height: auto;
+        width: 100%;
+        margin: 0 0 $basic_margin 0;
+    }
+}
+
+.nav-container {
+    max-width: 25*$basic_size;
+    width: 15%;
+}
+
+@media screen and (max-width: 800px) {
+    .blog-slider-content {
+        display: table;
+        max-width: 60*$basic_size;
+        margin: 0 auto;
+        article.foreground {
+            margin-right: 0;
+        }
+    }
+    
+    .nav-container {
+        display: table-footer-group;
+        width: 45%;
+    }
+    .blog-main-container {
+        display: table-header-group;
+    }
+    #blog-description {
+        margin-right: 0;
+    }
+}
+
+.blog-side {
+    width: 100%;
+/*     min-height: 25*$basic_size; */
+    padding: $basic_size 2*$basic_size;
+    text-align: left;
+
+    img {
+        width: 21*$basic_size;
+        height: auto;
+        margin-top: 1*$basic_size;
+        max-height: 14*$basic_size;
+    }
+    
+    h3 {
+        margin: 0;
+    }
+}
+
+#prev-container {
+    clear: both;
+    margin-right: $basic_margin;
+    float: left;
+}
+#next-container {
+    float: right;
+}
+
+
+.blog-next {
+    margin-right: 0;
+}
+.nav-container a {
+    text-decoration: none;
+}
+
+.blog-side:hover,
+.blog-side:focus,
+.blog-side:active {
+    background-color: owneon-color( 'fg' );
+    
+    h3 {
+        color: owneon-color( 'accent-strong' );
+    }
+}
+
+#blog-description {
+    min-height: $strip_height;
+    line-height: $strip_height;
+    
+    h2 {
+        display: inline-block;
+        float: left;
+        padding: 0 $basic_margin;
+        margin-bottom: 0;
+    }
+    
+    p {
+        margin: 0;
+    }
+}
+
+.taxonomy-description {
+    display: inline;
+    
+    p {
+        text-align: left;
+        padding: 0 $basic_margin;
+    }
+}
+
+
+/* fix issues with additional space after header due to line-height */
+.section-header {
+    line-height: 0;
+    
+    h1, nav {
+        line-height: $font__line-height-body;
+    }
+    h1 {
+        margin: 0;
+    }
+}

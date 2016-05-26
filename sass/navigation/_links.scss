@@ -1,0 +1,31 @@
+a {
+	color: owneon-color( 'accent-weak' );
+        text-decoration: none;
+        
+	&:visited {
+		color: mix( gray, owneon-color( 'accent-weak' ), 40%);
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: owneon-color( 'accent-strong' );
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+.section-heading a {
+    color: owneon-color( 'primary' );
+    @include font-size(4);
+}
+
+.section-heading a:hover,
+.section-heading a:focus,
+.section-heading a:active {
+	color: owneon-color( 'accent-strong' );
+}

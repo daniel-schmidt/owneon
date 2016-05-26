@@ -1,0 +1,12 @@
+@media screen and (max-width: 800px) {
+    .section nav, .content-centered, article.foreground{
+        margin-right: 0;
+    }
+    #infos.fixedwidth {
+        width: 100%;
+        
+        article.foreground {
+            margin-right: 0;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 /**
- * owneon Theme Customizer
+ * owneon Theme Customizer.
  *
  * @package owneon
  */
@@ -21,6 +21,6 @@ add_action( 'customize_register', 'owneon_customize_register' );
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function owneon_customize_preview_js() {
-	wp_enqueue_script( 'owneon_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_enqueue_script( 'owneon_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'owneon_customize_preview_js' );

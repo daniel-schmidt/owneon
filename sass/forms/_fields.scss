@@ -1,0 +1,63 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: owneon_color('aside');
+        background-color: owneon_color( 'fg-light' );
+        border: 0;
+        border-left: 0.5*$basic_size solid owneon_color( 'fg-light');
+        vertical-align: bottom;
+	/*border: 2px solid owneon_color( 'aside' );*/
+/*         border: 2px solid; */
+/*         border-color: owneon_color( 'aside' ) owneon_color( 'aside-medium' ) owneon_color( 'aside-dark' ); */
+/* 	border-radius: 4px; */
+/* 	border-radius: 0; */
+
+	&:focus {
+		color: owneon_color( 'aside-strong' );
+                background-color: owneon_color( 'fg' );
+                border-left: 0.5*$basic_size solid owneon_color( 'accent-strong' );
+	}
+}
+
+select {
+	border: 0;
+        color: owneon_color( 'aside-strong' );
+        background-color: owneon_color( 'fg-light' );
+        height: $input_height;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"] {
+	padding: 0.1*$input_height;
+}
+
+textarea {
+	padding-left: 0.1*$input_height;
+	width: 100%;
+}

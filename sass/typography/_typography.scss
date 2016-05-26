@@ -1,0 +1,14 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: owneon-color('fg');
+	font-family: $font__main;
+	@include font-size($font-size-base);
+	line-height: $font__line-height-body;
+}
+
+@import "headings";
+
+@import "copy";

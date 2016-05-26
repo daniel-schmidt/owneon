@@ -1,0 +1,27 @@
+ul, ol {
+	margin: 0 0 2*$basic-size 2*$basic-size;
+        padding: 0;
+        padding-left: 2*$basic-size;
+}
+
+ul {
+	list-style: square;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 $basic-size $basic-size;
+}

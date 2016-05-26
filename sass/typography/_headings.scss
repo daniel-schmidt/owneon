@@ -1,0 +1,20 @@
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+        color: owneon-color( 'primary' );
+        font-family: owneon-font( 'thin' );
+        margin: 0 0 2*$basic_size 0;
+}
+
+h1 {
+    @include font-size( 2*$font-size-base );
+}
+
+h2 {
+    @include font-size( 1.2*$font-size-base );
+    font-family: owneon-font('light');
+}
+
+h3 {
+    @include font-size( $font-size-base );
+    font-family: owneon-font('light');
+}

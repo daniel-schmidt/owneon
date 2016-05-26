@@ -33,3 +33,8 @@ Seite: max. 105 rem
             Article: 64 rem
             
 verkleinern: 105-22 = 83 rem
+
+aus dem Hintergrund von colorhunter.com:
+
+dunkelbraun     braun   graublau    hellblau    orange
+#1C1816         #603C2E #8FA4B6     #A4BAD7     #D68431

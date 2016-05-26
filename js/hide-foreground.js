@@ -4,8 +4,8 @@ jQuery( document ).ready( function($) {
     // initialize site to start scrolled down
 //     w_height = $( window ).height();
 //     w_width = $( window ).width();
-    overhead = window.innerHeight-$('#content').offset().top-parseInt($('#masthead').css('margin-top'));
-    $( '.site' ).css( {'margin-top': (overhead) + "px"} );  
+    overhead = window.innerHeight-$('#content').offset().top;
+    $( '.site' ).css( {'margin-top': (overhead) + "px"} );      
     $( 'html, body' ).scrollTop(overhead);  
     w_ratio = window.innerWidth/window.innerHeight;
     var ypos = $( window ).scrollTop();
@@ -27,14 +27,18 @@ jQuery( document ).ready( function($) {
     
     function shrink_to_contain(){
         var x = 1-ypos/overhead;
+        var target_top = 0;
         if( w_ratio > img_ratio ) {
-        target_height = window.innerHeight;
+            target_height = window.innerHeight;
             target_width = target_height * img_ratio;
         } else {
             target_width = window.innerWidth;
             target_height = target_width / img_ratio;
+            target_top = (window.innerHeight - target_height)/2;
         }
-        $('#background').css({ 'background-size': (img_width*(1-x)+ x*target_width) + "px " + (img_height*(1-x)+x*target_height) + "px"
+        $('#background').css({ 
+            'background-size': (img_width*(1-x)+ x*target_width) + "px " + (img_height*(1-x)+x*target_height) + "px",
+            'top': target_top*x + "px"
         });
     }
     
@@ -45,11 +49,11 @@ jQuery( document ).ready( function($) {
         ypos = $( window ).scrollTop();
 
         if( ypos >= overhead/2 ) {
-            $button.css('background-position', "right top");
+            $button.removeClass('button-down').addClass('button-up');
             $button.children().text('Hintergrund angucken');
         } else {
             $button.children().text('zurück zum Text');
-            $button.css('background-position', "right -4.5rem");
+            $button.removeClass('button-up').addClass('button-down');
         }
 
         if( ypos < overhead ) {
@@ -69,7 +73,8 @@ jQuery( document ).ready( function($) {
         }
     });
     
-    $button.on('click', function(){
+    $button.on('click', function( e ){
+        e.preventDefault();
         if( $( window ).scrollTop() >= overhead/2 ) {
         $( 'html, body' ).animate({scrollTop:0},"slow");
         } else {
