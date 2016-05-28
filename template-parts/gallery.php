@@ -207,7 +207,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                             <div id="galerie-next">
                                 <?php
                                     $cat_link = get_term_link( $main_term->term_id, 'galerie_kategorie' );
-                                    $cat_link = substr_replace( $cat_link, '&paged=2', -8, 0 ); ?>
+                                    $cat_link = substr_replace( $cat_link, 'page/2/', -8, 0 ); ?>
                                 <a class="gallery-link" href="<?php echo esc_url( $cat_link ); ?>">
                                     <div class="button-right"></div>
                                 </a>

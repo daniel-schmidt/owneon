@@ -173,9 +173,8 @@ foreach ( $main_categories as $category ) :
                                             echo '<div id="next-container" class="nav-container slider-item">';
                                         endif;
                                         $cat_link = get_category_link( $main_categories[0]->term_id );
-                                        $cat_link = substr_replace( $cat_link, '&paged=2', -5, 0 );
-                                        ?>
-                                            
+                                        $cat_link = substr_replace( $cat_link, 'page/2/', -5, 0 );
+                                        ?>                                            
                                             <a class="blog-link" href="<?php echo esc_url( $cat_link ) ?>">
                                             <div class="blog-side blog-next foreground">
                                                 <h3><?php echo the_title( '', '', FALSE ); ?></h3>
