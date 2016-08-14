@@ -41,7 +41,7 @@ foreach ( $main_categories as $category ) :
                 if( ! empty( $categories ) ) {
                     $cat_items='<nav class="section-menu-container"><ul class="section-menu">';
                     foreach ( $categories as $cat ) {
-                        $cat_items .= '<li class="foreground section-menu-item"><a class="blog-link" href="' . esc_url( get_category_link( $cat )  ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $cat->name ) ) . '">' . $cat->name . '</a></li>';
+                        $cat_items .= '<li class="foreground section-menu-item"><a class="blog-link" href="' . esc_url( get_category_link( $cat )  ) . '">' . $cat->name . '</a></li>';
                     }
                     $cat_items .= '</ul></nav>';
                     echo $cat_items;
