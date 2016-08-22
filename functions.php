@@ -7,6 +7,8 @@
  * @package owneon
  */
 
+ global $post;
+ 
 if ( ! function_exists( 'owneon_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -143,8 +145,11 @@ function owneon_scripts() {
             // passing the url for ajax requests over to javascript
             wp_localize_script( 'owneon-ajax', 'owneonajax', array(
                     'ajaxurl' => admin_url( 'admin-ajax.php' ),
-                    'query_vars' => json_encode( $wp_query->query )
-            ));
+//                     'query_vars' => json_encode( $wp_query->query ),
+                    'query_vars' => json_encode( $GLOBALS['wp_query']->query )
+            ) );
+            $bla = 'Hallo...';
+            var_dump( $bla );
         }
 }
 add_action( 'wp_enqueue_scripts', 'owneon_scripts' );
@@ -156,7 +161,7 @@ add_action( 'wp_enqueue_scripts', 'owneon_scripts' );
  add_action( 'wp_ajax_nopriv_ajax_pagination', 'owneon_ajax_pagination' );
  add_action( 'wp_ajax_ajax_pagination', 'owneon_ajax_pagination' );
  
- function owneon_ajax_pagination() {
+ function owneon_ajax_pagination() {    
     $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
     
     $query_vars['paged'] = $_POST['page'];
@@ -164,17 +169,7 @@ add_action( 'wp_enqueue_scripts', 'owneon_scripts' );
     $posts = new WP_Query( $query_vars );
     $GLOBALS['wp_query'] = $posts;
     
-//     if( ! $posts->have_posts() ) {
-//         get_template_part( 'content', 'none' );
-//     } else {
-//         while( $posts->have_posts() ) {
-//             $posts->the_post();
-//             get_template_part( 'content', get_post_format() );
-//         }
-//     }
-    
     if ( $posts->have_posts() ) {
-//         echo '<div class="blog-main-container">'
         while ( $posts->have_posts() ) { 
             $posts->the_post();
             echo '<div class="slider-item blog-main">';
@@ -183,7 +178,6 @@ add_action( 'wp_enqueue_scripts', 'owneon_scripts' );
         }
     }
     
-//     echo get_bloginfo( 'title' );
     die();
 }
 
