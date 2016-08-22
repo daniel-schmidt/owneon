@@ -80,7 +80,7 @@ foreach ( $main_categories as $category ) :
                                         ">
                                         <div class="blog-side blog-prev foreground">
                                             <h3><?php echo the_title( '', '', FALSE ); ?></h3>
-                                            <?php echo get_the_post_thumbnail( null, 'small' ); ?>
+                                            <?php echo get_the_post_thumbnail( null, 'medium' ); ?>
                                         </div>
                                     </a>
                                 <?php endwhile; ?>
@@ -113,7 +113,7 @@ foreach ( $main_categories as $category ) :
                                         ">
                                         <div class="blog-side blog-next foreground">
                                             <h3><?php echo the_title( '', '', FALSE ); ?></h3>
-                                            <?php echo get_the_post_thumbnail( null, 'small' ); ?>
+                                            <?php echo get_the_post_thumbnail( null, 'medium' ); ?>
                                         </div>
                                     </a>
                                 <?php endwhile; ?>
@@ -178,7 +178,7 @@ foreach ( $main_categories as $category ) :
                                             <a class="blog-link" href="<?php echo esc_url( $cat_link ) ?>">
                                             <div class="blog-side blog-next foreground">
                                                 <h3><?php echo the_title( '', '', FALSE ); ?></h3>
-                                                <?php echo get_the_post_thumbnail( null, 'small' ); ?>
+                                                <?php echo get_the_post_thumbnail( null, 'medium' ); ?>
                                             </div>
                                             </a>
                                     <?php
