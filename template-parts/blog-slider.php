@@ -74,7 +74,7 @@ foreach ( $main_categories as $category ) :
                                 //  we have a previous post, show nav divs
                                 while( $prev_posts->have_posts() ) :
                                 $prev_posts->the_post();?>
-                                    <a  class="blog-link" href="<?php $ppl=explode('"',get_previous_posts_link());
+                                    <a  class="blog-paging" href="<?php $ppl=explode('"',get_previous_posts_link());
                                         $ppl_url=$ppl[1];
                                         echo esc_url($ppl_url . '#blog'); ?>
                                         ">
@@ -107,7 +107,7 @@ foreach ( $main_categories as $category ) :
                             if( $next_posts->have_posts() ) :
                                 while( $next_posts->have_posts() ) :
                                 $next_posts->the_post();?>
-                                    <a  class="blog-link" href="<?php $npl=explode('"',get_next_posts_link()); 
+                                    <a  class="blog-paging" href="<?php $npl=explode('"',get_next_posts_link()); 
                                         $npl_url=$npl[1];
                                         echo esc_url($npl_url . '#blog'); ?>
                                         ">
@@ -175,7 +175,7 @@ foreach ( $main_categories as $category ) :
                                         $cat_link = get_category_link( $main_categories[0]->term_id );
                                         $cat_link = substr_replace( $cat_link, 'page/2/', -5, 0 );
                                         ?>                                            
-                                            <a class="blog-link" href="<?php echo esc_url( $cat_link ) ?>">
+                                            <a class="blog-paging" href="<?php echo esc_url( $cat_link ) ?>">
                                             <div class="blog-side blog-next foreground">
                                                 <h3><?php echo the_title( '', '', FALSE ); ?></h3>
                                                 <?php echo get_the_post_thumbnail( null, 'medium' ); ?>

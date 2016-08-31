@@ -20,7 +20,7 @@ jQuery( document ).ready( function($) {
         ;
     };
     
-    $( 'body' ).on( 'click', '#primary-menu a, a.gallery-link, a.info-link', function( e ) {
+    $( 'body' ).on( 'click', '#primary-menu a, a.gallery-link, a.info-link a.blog-link', function( e ) {
         e.preventDefault();
         var url = this.href;
         var hash = this.hash;
@@ -39,13 +39,18 @@ jQuery( document ).ready( function($) {
         loadContent( url, hash );
     };
     
-    $( 'body' ).on( 'click', 'a.blog-link', function( e ) {
+    $( 'body' ).on( 'click', 'a.blog-paging', function( e ) {
         e.preventDefault();
         var url = this.href;        
         var $this = $(this);
         
         console.log( queryObject );
-        page++;
+        
+        if( $this.children().hasClass( "blog-next" ) ) {
+            page++;
+        } else {
+            page--;
+        }
         
         console.log( page );
         $.ajax( {
@@ -59,7 +64,6 @@ jQuery( document ).ready( function($) {
             success: function( html ) {
                 $( 'article' ).remove();
                 $( '.blog-main-container' ).append( html );
-                console.log('done with ' + url );
                 history.pushState('', $this.text, url );
             }
         } )
