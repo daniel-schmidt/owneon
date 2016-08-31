@@ -21,7 +21,7 @@
                 foreach( $sub_pages as $sub_page ) {
                     $menu_items .= '<li class="foreground section-menu-item"><a class="info-link" href="' . get_page_link( $sub_page->ID ) . '">';
                     $menu_items .= $sub_page->post_title;
-                    $menu_items .= '</li></a>';
+                    $menu_items .= '</a></li>';
                 }
                 $menu_items .= '</ul></nav>';
                 echo $menu_items; ?>

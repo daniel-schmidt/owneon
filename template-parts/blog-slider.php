@@ -41,7 +41,7 @@ foreach ( $main_categories as $category ) :
                 if( ! empty( $categories ) ) {
                     $cat_items='<nav class="section-menu-container"><ul class="section-menu">';
                     foreach ( $categories as $cat ) {
-                        $cat_items .= '<li class="foreground section-menu-item"><a class="blog-link" href="' . esc_url( get_category_link( $cat )  ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $cat->name ) ) . '">' . $cat->name . '</a></li>';
+                        $cat_items .= '<li class="foreground section-menu-item"><a class="blog-link" href="' . esc_url( get_category_link( $cat )  ) . '">' . $cat->name . '</a></li>';
                     }
                     $cat_items .= '</ul></nav>';
                     echo $cat_items;
@@ -80,7 +80,7 @@ foreach ( $main_categories as $category ) :
                                         ">
                                         <div class="blog-side blog-prev foreground">
                                             <h3><?php echo the_title( '', '', FALSE ); ?></h3>
-                                            <?php echo get_the_post_thumbnail( null, 'small' ); ?>
+                                            <?php echo get_the_post_thumbnail( null, 'medium' ); ?>
                                         </div>
                                     </a>
                                 <?php endwhile; ?>
@@ -113,7 +113,7 @@ foreach ( $main_categories as $category ) :
                                         ">
                                         <div class="blog-side blog-next foreground">
                                             <h3><?php echo the_title( '', '', FALSE ); ?></h3>
-                                            <?php echo get_the_post_thumbnail( null, 'small' ); ?>
+                                            <?php echo get_the_post_thumbnail( null, 'medium' ); ?>
                                         </div>
                                     </a>
                                 <?php endwhile; ?>
@@ -178,7 +178,7 @@ foreach ( $main_categories as $category ) :
                                             <a class="blog-link" href="<?php echo esc_url( $cat_link ) ?>">
                                             <div class="blog-side blog-next foreground">
                                                 <h3><?php echo the_title( '', '', FALSE ); ?></h3>
-                                                <?php echo get_the_post_thumbnail( null, 'small' ); ?>
+                                                <?php echo get_the_post_thumbnail( null, 'medium' ); ?>
                                             </div>
                                             </a>
                                     <?php

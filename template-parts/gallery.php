@@ -12,7 +12,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
             $curr_term = '';
                     
                     // main gallery button
-                    echo '<h1 class="section-heading"><a class="gallery-link" href="' . esc_url( get_category_link( $main_term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $main_term->name ) ) . '">'
+                    echo '<h1 class="section-heading"><a class="gallery-link" href="' . esc_url( get_category_link( $main_term ) ) . '">'
                     . $main_term->name . '</a></h1>';
                     $terms = get_terms( 'galerie_kategorie', array(
                         'orderby' => 'slug',
@@ -45,7 +45,7 @@ if ( ! empty( $main_terms ) && ! is_wp_error( $main_terms ) ) {
                         if( $curr_term == $term || $parent==$term ) {
                             $term_items .= ' gallery-curr-item';
                         }
-                        $term_items .= '" href="' . esc_url( get_category_link( $term ) ) . '" alt="' . esc_attr( sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) ) . '">' . $term->name . '</a></li>';
+                        $term_items .= '" href="' . esc_url( get_category_link( $term ) ) . '">' . $term->name . '</a></li>';
                     }
                     $term_items .= '</ul></nav>';
                     echo $term_items;

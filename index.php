@@ -26,7 +26,7 @@
         <div id="frontpage" class="section">     
             <div id="frontpage-container" class="content-area content-centered fixed-width">
                 <div id="main-logo-container" class="fixed-width">
-                    <img class="fixed-width main-logo" height="106px" width="380px" src="<?php echo esc_url( get_template_directory_uri () . '/img/Logo.svg' )?>" alt="neonlicht fotografie Logo"/>
+                    <img class="fixed-width main-logo" height="106" width="380" src="<?php echo esc_url( get_template_directory_uri () . '/img/Logo.svg' )?>" alt="neonlicht fotografie Logo"/>
                 </div>
             <?php 
             if( is_front_page() ) {
