@@ -15,13 +15,13 @@
 
 	<footer id="colophon" class="site-footer foreground" role="contentinfo">
 		<div class="site-info">
-			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/" class="alignleft"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" /></a>
+			<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/de/" class="alignleft"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/de/88x31.png" /></a>
 			<div>
-			<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type">Alle Fotografien auf neonfoto.de</span>
+			<span xmlns:dct="https://purl.org/dc/terms/" href="https://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type">Alle Fotografien auf neonfoto.de</span>
 			wurden erstellt von 
-			<a xmlns:cc="http://creativecommons.org/ns#" href="http://neonfoto.de" property="cc:attributionName" rel="cc:attributionURL">Daniel Schmidt</a> 
+			<a xmlns:cc="https://creativecommons.org/ns#" href="https://neonfoto.de" property="cc:attributionName" rel="cc:attributionURL">Daniel Schmidt</a> 
 			und stehen unter einer
-			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/de/">Creative Commons BY-NC-SA 3.0 Deutschland Lizenz</a>. Sie dürfen für nicht-kommerzielle Zwecke bei Namensnennung des Autoren unter gleichen Bedingungen weiterverwendet werden.
+			<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/de/">Creative Commons BY-NC-SA 3.0 Deutschland Lizenz</a>. Sie dürfen für nicht-kommerzielle Zwecke bei Namensnennung des Autoren unter gleichen Bedingungen weiterverwendet werden.
 			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
